@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         map["operation_sum"] = "-220"
         map["comment"] = "-220"
         arrayList.add(map)
-
+        //allthesmallthings
         map = HashMap()
         map["date"] = "08.06.2020"
         map["category"] = "Food"
