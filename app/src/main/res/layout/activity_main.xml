@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/main_background">
+
+    <LinearLayout
+        android:id="@+id/main_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/profile_part"
+            style="@style/linear_layout_height_zero_h"
+            android:layout_weight="2"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:id="@+id/budget_part"
+                style="@style/linear_layout_width_zero_h"
+                android:layout_weight="2"
+                tools:ignore="NestedWeights">
+
+                <TextView
+                    android:id="@+id/budget"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="39dp"
+                    android:layout_marginTop="24dp"
+                    style="@style/font_roboto_medium_white"
+                    android:textSize="69sp"
+                    android:text="23000"/>
+
+                <TextView
+                    android:id="@+id/currency"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="72dp"
+                    style="@style/font_roboto_medium_white"
+                    android:textSize="23sp"
+                    android:text="руб."/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/icon_part"
+                style="@style/linear_layout_width_zero_h"
+                android:layout_weight="1">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile"
+                    android:transitionName="@string/profile_ic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="39dp"
+                    app:civ_border_width="2dp"
+                    app:civ_border_color="@color/white"
+                    android:src="@drawable/profile_ic"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/diagram_part"
+            style="@style/linear_layout_height_zero_h"
+            android:layout_weight="4">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/income_expenses_part"
+            style="@style/linear_layout_height_zero_h"
+            android:layout_weight="1"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:id="@+id/expenses_part"
+                style="@style/linear_layout_width_zero_h"
+                android:layout_weight="1"
+                tools:ignore="NestedWeights">
+
+                <TextView
+                    android:id="@+id/expenses_sum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="39dp"
+                    android:gravity="center_vertical"
+                    style="@style/font_roboto_regular_white"
+                    android:textSize="36sp"
+                    android:text="-23000"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/income_part"
+                style="@style/linear_layout_width_zero_h"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/income_sum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="50dp"
+                    android:gravity="center_vertical"
+                    style="@style/font_roboto_regular_white"
+                    android:textSize="36sp"
+                    android:text="+23000"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/linear_layout_height_zero_h"
+            android:layout_weight="3">
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+    <include layout="@layout/layout_bottom_sheet"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

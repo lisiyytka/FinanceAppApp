@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistrationActivity">
+
+    <LinearLayout
+        android:id="@+id/main_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/registration_txt_part"
+            style="@style/linear_layout_height_zero_h"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/registration_txt"
+                style="@style/font_roboto_light_blue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Регистрация"
+                android:textSize="36sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/edit_part"
+            style="@style/linear_layout_height_zero_v"
+            android:layout_weight="3">
+
+            <EditText
+                android:id="@+id/login"
+                style="@style/font_roboto_regular_blue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"
+                android:paddingHorizontal="20dp"
+                android:layout_marginHorizontal="37dp"
+                android:background="@drawable/operation_sum_bg"
+                android:ems="10"
+                android:hint="Логин"
+                android:inputType="text"
+                android:textColorLink="@color/dark_blue"
+                android:textCursorDrawable="@color/dark_blue"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/password"
+                style="@style/font_roboto_regular_blue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginVertical="13dp"
+                android:layout_marginHorizontal="37dp"
+                android:paddingHorizontal="20dp"
+                android:background="@drawable/operation_sum_bg"
+                android:ems="10"
+                android:hint="Пароль"
+                android:inputType="textPassword"
+                android:textColorLink="@color/dark_blue"
+                android:textCursorDrawable="@color/dark_blue"
+                android:textSize="24sp" />
+
+            <CheckBox
+                android:id="@+id/checkbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="37dp"
+                style="@style/font_roboto_regular_dark_gray"
+                android:textColor="@color/txt_gray"
+                android:textSize="16sp"
+                android:text="Согласие на обработку персональных данных"
+                />
+
+            <Button
+                android:id="@+id/next_btn"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                style="@style/font_roboto_regular_blue"
+                android:text="next"/>
+
+            <TextView
+                android:id="@+id/already_have_acc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:layout_marginHorizontal="14dp"
+                style="@style/font_roboto_regular_dark_gray"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:textColor="@color/txt_gray"
+                android:text="Уже есть аккаунт?"/>
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

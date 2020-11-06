@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">FinanceApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="profile_ic">profile_ic</string>
+    <string name="no_account">Нет аккаунта?   <b>Зарегистрируйтесь</b></string>
+</resources>

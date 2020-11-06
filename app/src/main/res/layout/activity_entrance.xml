@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EntranceActivity">
+
+    <LinearLayout
+        android:id="@+id/main_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/entrance_txt_part"
+            style="@style/linear_layout_height_zero_h"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/entrance_txt"
+                style="@style/font_roboto_light_blue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Вход"
+                android:textSize="36sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/edit_part"
+            style="@style/linear_layout_height_zero_v"
+            android:layout_weight="3">
+
+            <EditText
+                android:id="@+id/login"
+                style="@style/font_roboto_regular_blue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"
+                android:paddingHorizontal="20dp"
+                android:layout_marginHorizontal="37dp"
+                android:background="@drawable/operation_sum_bg"
+                android:ems="10"
+                android:hint="Логин"
+                android:inputType="text"
+                android:textColorLink="@color/dark_blue"
+                android:textCursorDrawable="@color/dark_blue"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/password"
+                style="@style/font_roboto_regular_blue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginVertical="13dp"
+                android:layout_marginHorizontal="37dp"
+                android:paddingHorizontal="20dp"
+                android:background="@drawable/operation_sum_bg"
+                android:ems="10"
+                android:hint="Пароль"
+                android:inputType="textPassword"
+                android:textColorLink="@color/dark_blue"
+                android:textCursorDrawable="@color/dark_blue"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/next_btn"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                style="@style/font_roboto_regular_blue"
+                android:text="next"/>
+
+            <TextView
+                android:id="@+id/registration_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:layout_marginHorizontal="14dp"
+                style="@style/font_roboto_regular_dark_gray"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:textColor="@color/txt_gray"
+                android:text="@string/no_account"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

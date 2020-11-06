@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity"
+    android:background="@drawable/main_background">
+
+    <LinearLayout
+        android:id="@+id/main_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/name_part"
+            style="@style/linear_layout_height_zero_h"
+            android:layout_weight="1"
+            android:baselineAligned="false">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                style="@style/font_roboto_medium_white"
+                android:textSize="44sp"
+                android:text="Имя Фамилия"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/icon_part"
+            style="@style/linear_layout_height_zero_v"
+            android:layout_weight="4">
+
+            <LinearLayout
+                android:id="@+id/img_part"
+                style="@style/linear_layout_height_zero_h"
+                android:layout_weight="4"
+                tools:ignore="NestedWeights">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_img"
+                    android:transitionName="@string/profile_ic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:civ_border_width="7dp"
+                    app:civ_border_color="@color/white"
+                    android:src="@drawable/profile_ic"
+                    android:layout_margin="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/login_part"
+                style="@style/linear_layout_height_zero_h"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/profile_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    style="@style/font_roboto_medium_white"
+                    android:textSize="28sp"
+                    android:text="login"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btn_part"
+            style="@style/linear_layout_height_zero_v"
+            android:layout_weight="2"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:id="@+id/settings_part"
+                style="@style/linear_layout_height_zero_h"
+                android:layout_weight="1"
+                tools:ignore="NestedWeights">
+
+                <Button
+                    android:id="@+id/settings_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="38dp"
+                    android:layout_marginVertical="10dp"
+                    android:paddingVertical="5dp"
+                    android:textAllCaps="false"
+                    android:background="@drawable/btn_background"
+                    style="@style/font_roboto_regular_white"
+                    android:textColor="@color/gradient_blue"
+                    android:textSize="18sp"
+                    android:text="Настройки"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/account_part"
+                style="@style/linear_layout_height_zero_h"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/account_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="38dp"
+                    android:paddingVertical="5dp"
+                    android:textAllCaps="false"
+                    android:background="@drawable/btn_background"
+                    style="@style/font_roboto_regular_white"
+                    android:textColor="@color/gradient_blue"
+                    android:textSize="18sp"
+                    android:text="Аккаунт"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/linear_layout_height_zero_h"
+            android:layout_weight="3">
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
