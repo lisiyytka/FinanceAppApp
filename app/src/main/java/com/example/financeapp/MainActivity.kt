@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         val arrayList: ArrayList<HashMap<String, String>> = ArrayList()
         var map: HashMap<String, String>
 
+        //fgh
         map = HashMap()
         map["date"] = "07.06.2020"
         map["category"] = "Food"
