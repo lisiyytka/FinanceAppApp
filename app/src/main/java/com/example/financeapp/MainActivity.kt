@@ -14,8 +14,13 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
 import de.hdodenhof.circleimageview.CircleImageView
+//import com.github.mikephil.charting.charts.PieChart
+//import com.github.mikephil.charting.data.PieData
+//import com.github.mikephil.charting.data.PieDataSet
+//import com.github.mikephil.charting.utils.ColorTemplate
+//import kotlinx.android.synthetic.main.fragment_diagram_circle.*
 
-
+class findView(val profile: View,val listView: ListView, addOperation: View)
 class MainActivity : AppCompatActivity() {
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
@@ -29,7 +34,6 @@ class MainActivity : AppCompatActivity() {
         val listView: ListView = findViewById(R.id.operations_list)
         val addOperation = findViewById<Button>(R.id.add_btn)
         setOnClick(profile,addOperation)
-
         val arrayList: ArrayList<HashMap<String, String>> = ArrayList()
         var map: HashMap<String, String>
         //fgh
@@ -89,9 +93,11 @@ class MainActivity : AppCompatActivity() {
             intArrayOf(R.id.date, R.id.category, R.id.operation_sum, R.id.comment)
         )
         listView.adapter = adapter
+
+
     }
 
-    fun setOnClick(profile: View ,addOperation: View){
+    fun setOnClick(profile: View ,addOperation: View) {
         profile.setOnClickListener {
             startActivity(Intent(this, ProfileActivity::class.java))
         }
@@ -100,4 +106,5 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, CategoryActivity::class.java))
         }
     }
+
 }
