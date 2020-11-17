@@ -73,14 +73,14 @@
                 android:textCursorDrawable="@color/dark_blue"
                 android:textSize="24sp" />
 
-            <Button
+            <ImageView
                 android:id="@+id/next_btn"
+                android:src="@drawable/next_btn"
                 android:layout_width="100dp"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                style="@style/font_roboto_regular_blue"
-                android:text="next"/>
+                />
 
             <TextView
                 android:id="@+id/registration_btn"

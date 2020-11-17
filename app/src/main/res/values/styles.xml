@@ -63,4 +63,14 @@
         <item name="android:layout_margin">5dp</item>
     </style>
 
+    <style name="img_cat">
+        <item name="android:layout_width">78dp</item>
+        <item name="android:layout_height">78dp</item>
+        <item name="android:layout_marginTop">7dp</item>
+        <item name="android:layout_marginBottom">7dp</item>
+        <item name="android:layout_marginStart">5dp</item>
+        <item name="android:layout_marginEnd">5dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
 </resources>

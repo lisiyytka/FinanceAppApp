@@ -130,7 +130,8 @@
 
             <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
 
                 <LinearLayout
                     android:id="@+id/categories"
@@ -141,34 +142,22 @@
                         android:layout_weight="1"
                         android:layout_marginHorizontal="20dp">
 
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_marginVertical="7dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:layout_width="78dp"
-                            android:layout_height="78dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/ellipse"/>
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_marginVertical="7dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:layout_width="78dp"
-                            android:layout_height="78dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/ellipse"/>
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_marginVertical="7dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:layout_width="78dp"
-                            android:layout_height="78dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/ellipse"/>
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_marginVertical="7dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:layout_width="78dp"
-                            android:layout_height="78dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/ellipse"/>
+                        <ImageView
+                            android:id="@+id/food"
+                            style="@style/img_cat"
+                            android:src="@drawable/food"/>
+                        <ImageView
+                            android:id="@+id/car"
+                            style="@style/img_cat"
+                            android:src="@drawable/car"/>
+                        <ImageView
+                            android:id="@+id/clothes"
+                            style="@style/img_cat"
+                            android:src="@drawable/clothes"/>
+                        <ImageView
+                            android:id="@+id/education"
+                            style="@style/img_cat"
+                            android:src="@drawable/education"/>
 
                     </LinearLayout>
 
@@ -177,34 +166,22 @@
                         android:layout_weight="1"
                         android:layout_marginHorizontal="20dp">
 
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_marginVertical="7dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:layout_width="78dp"
-                            android:layout_height="78dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/ellipse"/>
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_marginVertical="7dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:layout_width="78dp"
-                            android:layout_height="78dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/ellipse"/>
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_marginVertical="7dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:layout_width="78dp"
-                            android:layout_height="78dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/ellipse"/>
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_marginVertical="7dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:layout_width="78dp"
-                            android:layout_height="78dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/ellipse"/>
+                        <ImageView
+                            android:id="@+id/hobby"
+                            style="@style/img_cat"
+                            android:src="@drawable/hobby"/>
+                        <ImageView
+                            android:id="@+id/house"
+                            style="@style/img_cat"
+                            android:src="@drawable/house"/>
+                        <ImageView
+                            android:id="@+id/personal_care"
+                            style="@style/img_cat"
+                            android:src="@drawable/personal_care"/>
+                        <ImageView
+                            android:id="@+id/medicine"
+                            style="@style/img_cat"
+                            android:src="@drawable/medicine"/>
 
                     </LinearLayout>
 
@@ -213,34 +190,22 @@
                         android:layout_weight="1"
                         android:layout_marginHorizontal="20dp">
 
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_marginVertical="7dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:layout_width="78dp"
-                            android:layout_height="78dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/ellipse"/>
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_marginVertical="7dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:layout_width="78dp"
-                            android:layout_height="78dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/ellipse"/>
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_marginVertical="7dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:layout_width="78dp"
-                            android:layout_height="78dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/ellipse"/>
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_marginVertical="7dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:layout_width="78dp"
-                            android:layout_height="78dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/ellipse"/>
+                        <ImageView
+                            android:id="@+id/pets"
+                            style="@style/img_cat"
+                            android:src="@drawable/pets"/>
+                        <ImageView
+                            android:id="@+id/restaurant"
+                            style="@style/img_cat"
+                            android:src="@drawable/restaurant"/>
+                        <ImageView
+                            android:id="@+id/sport"
+                            style="@style/img_cat"
+                            android:src="@drawable/sport"/>
+                        <ImageView
+                            android:id="@+id/transport"
+                            style="@style/img_cat"
+                            android:src="@drawable/transport"/>
 
                     </LinearLayout>
 
@@ -249,34 +214,16 @@
                         android:layout_weight="1"
                         android:layout_marginHorizontal="20dp">
 
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_marginVertical="7dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:layout_width="78dp"
-                            android:layout_height="78dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/ellipse"/>
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_marginVertical="7dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:layout_width="78dp"
-                            android:layout_height="78dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/ellipse"/>
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_marginVertical="7dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:layout_width="78dp"
-                            android:layout_height="78dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/ellipse"/>
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_marginVertical="7dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:layout_width="78dp"
-                            android:layout_height="78dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/ellipse"/>
+                        <ImageView
+                            android:id="@+id/no_category"
+                            style="@style/img_cat"
+                            android:src="@drawable/no_category"/>
+                        <ImageView
+                            style="@style/img_cat" />
+                        <ImageView
+                            style="@style/img_cat" />
+                        <ImageView
+                            style="@style/img_cat" />
 
                     </LinearLayout>
 
@@ -285,106 +232,14 @@
                         android:layout_weight="1"
                         android:layout_marginHorizontal="20dp">
 
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_marginVertical="7dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:layout_width="78dp"
-                            android:layout_height="78dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/ellipse"/>
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_marginVertical="7dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:layout_width="78dp"
-                            android:layout_height="78dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/ellipse"/>
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_marginVertical="7dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:layout_width="78dp"
-                            android:layout_height="78dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/ellipse"/>
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_marginVertical="7dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:layout_width="78dp"
-                            android:layout_height="78dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/ellipse"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        style="@style/linear_layout_height_zero_h"
-                        android:layout_weight="1"
-                        android:layout_marginHorizontal="20dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_marginVertical="7dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:layout_width="78dp"
-                            android:layout_height="78dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/ellipse"/>
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_marginVertical="7dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:layout_width="78dp"
-                            android:layout_height="78dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/ellipse"/>
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_marginVertical="7dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:layout_width="78dp"
-                            android:layout_height="78dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/ellipse"/>
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_marginVertical="7dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:layout_width="78dp"
-                            android:layout_height="78dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/ellipse"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        style="@style/linear_layout_height_zero_h"
-                        android:layout_weight="1"
-                        android:layout_marginHorizontal="20dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_marginVertical="7dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:layout_width="78dp"
-                            android:layout_height="78dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/ellipse"/>
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_marginVertical="7dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:layout_width="78dp"
-                            android:layout_height="78dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/ellipse"/>
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_marginVertical="7dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:layout_width="78dp"
-                            android:layout_height="78dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/ellipse"/>
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_marginVertical="7dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:layout_width="78dp"
-                            android:layout_height="78dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/ellipse"/>
+                        <ImageView
+                            style="@style/img_cat"/>
+                        <ImageView
+                            style="@style/img_cat" />
+                        <ImageView
+                            style="@style/img_cat" />
+                        <ImageView
+                            style="@style/img_cat" />
 
                     </LinearLayout>
 

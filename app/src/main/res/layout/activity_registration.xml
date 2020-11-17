@@ -83,14 +83,14 @@
                 android:text="Согласие на обработку персональных данных"
                 />
 
-            <Button
+            <ImageView
                 android:id="@+id/next_btn"
+                android:src="@drawable/next_btn"
                 android:layout_width="100dp"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="40dp"
-                style="@style/font_roboto_regular_blue"
-                android:text="next"/>
+                android:layout_marginTop="10dp"
+                />
 
             <TextView
                 android:id="@+id/already_have_acc"

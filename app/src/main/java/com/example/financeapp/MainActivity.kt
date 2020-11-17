@@ -7,6 +7,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.ListView
 import android.widget.SimpleAdapter
 import androidx.appcompat.app.AppCompatActivity
@@ -32,8 +33,10 @@ class MainActivity : AppCompatActivity() {
 
         val profile = findViewById<CircleImageView>(R.id.profile)
         val listView: ListView = findViewById(R.id.operations_list)
-        val addOperation = findViewById<Button>(R.id.add_btn)
+        val addOperation = findViewById<ImageView>(R.id.add_btn)
+
         setOnClick(profile,addOperation)
+
         val arrayList: ArrayList<HashMap<String, String>> = ArrayList()
         var map: HashMap<String, String>
         //fgh

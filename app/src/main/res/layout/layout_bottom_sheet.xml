@@ -19,13 +19,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/add_btn"
         android:layout_width="78dp"
         android:layout_height="78dp"
-        android:background="@color/dark_blue"
+        android:src="@drawable/add_btn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="39dp" />
+        android:layout_margin="20dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
