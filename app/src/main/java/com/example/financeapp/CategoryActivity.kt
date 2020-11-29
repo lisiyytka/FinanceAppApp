@@ -16,21 +16,28 @@ class CategoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_category)
 
-        val enter = findViewById<EditText>(R.id.comment_text)
+        val editText = findViewById<EditText>(R.id.comment_text)
         setOnClick()
-        enter.setOnEditorActionListener { v, actionId, event ->
-            if (event.action == KeyEvent.ACTION_DOWN &&event.keyCode == KeyEvent.KEYCODE_ENTER) {
-                startActivity(Intent(this, MainActivity::class.java))
-            }
-            false
-        }
+
+//        editText.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
+//            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN) {
+//                startActivity(Intent(this, MainActivity::class.java))
+//                return@OnKeyListener true
+//            }
+//            false
+//        })
+
     }
 
     fun setOnClick(){
 
         val back = findViewById<ImageView>(R.id.back_arrow)
+        val acc = intent.getIntExtra("account", 0)
+
         back.setOnClickListener {
+            if (acc == 0)
             startActivity(Intent(this, MainActivity::class.java))
+            else startActivity(Intent(this, MainFamilyActivity::class.java))
         }
 
         val changeOperation = findViewById<TextView>(R.id.change_operation)

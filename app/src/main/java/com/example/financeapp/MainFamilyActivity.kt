@@ -22,14 +22,14 @@ import de.hdodenhof.circleimageview.CircleImageView
 //import kotlinx.android.synthetic.main.fragment_diagram_circle.*
 
 //class findView(val profile: View,val listView: ListView, addOperation: View)
-class MainActivity : AppCompatActivity() {
+class MainFamilyActivity : AppCompatActivity() {
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
     @SuppressLint("ClickableViewAccessibility")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main_family)
 
         val profile = findViewById<CircleImageView>(R.id.profile)
         val listView: ListView = findViewById(R.id.operations_list)
@@ -40,33 +40,6 @@ class MainActivity : AppCompatActivity() {
         val arrayList: ArrayList<HashMap<String, String>> = ArrayList()
         var map: HashMap<String, String>
         //fgh
-        map = HashMap()
-        map["date"] = "07.06.2020"
-        map["category"] = "Food"
-        map["operation_sum"] = "-220"
-        map["comment"] = "-220"
-        arrayList.add(map)
-
-        map = HashMap()
-        map["date"] = "08.06.2020"
-        map["category"] = "Food"
-        map["operation_sum"] = "-220"
-        map["comment"] = "-220"
-        arrayList.add(map)
-        //allthesmallthings
-        map = HashMap()
-        map["date"] = "08.06.2020"
-        map["category"] = "Food"
-        map["operation_sum"] = "-220"
-        map["comment"] = "-220"
-        arrayList.add(map)
-
-        map = HashMap()
-        map["date"] = "08.06.2020"
-        map["category"] = "Food"
-        map["operation_sum"] = "-220"
-        map["comment"] = "-220"
-        arrayList.add(map)
 
         map = HashMap()
         map["date"] = "08.06.2020"
@@ -89,11 +62,11 @@ class MainActivity : AppCompatActivity() {
         map["comment"] = "-220"
         arrayList.add(map)
         val adapter = SimpleAdapter(
-            this,
-            arrayList,
-            R.layout.fragment_operations_list,
-            arrayOf("date", "category", "operation_sum", "comment"),
-            intArrayOf(R.id.date, R.id.category, R.id.operation_sum, R.id.comment)
+                this,
+                arrayList,
+                R.layout.fragment_operations_list,
+                arrayOf("date", "category", "operation_sum", "comment"),
+                intArrayOf(R.id.date, R.id.category, R.id.operation_sum, R.id.comment)
         )
         listView.adapter = adapter
 
@@ -106,7 +79,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         addOperation.setOnClickListener {
-            startActivity(Intent(this, CategoryActivity::class.java).putExtra("account", 0))
+            startActivity(Intent(this, CategoryActivity::class.java).putExtra("account", 1))
         }
     }
 }

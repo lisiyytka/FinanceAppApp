@@ -9,9 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinanceApp">
-        <activity android:name=".EntranceActivity"
-            android:windowSoftInputMode="stateVisible|adjustResize"/>
-        <activity android:name=".RegistrationActivity"
+        <activity android:name=".LoginToFamilyAccActivity"></activity>
+        <activity android:name=".MainFamilyActivity" />
+        <activity
+            android:name=".EntranceActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity
+            android:name=".RegistrationActivity"
             android:windowSoftInputMode="stateVisible|adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,12 +24,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".StartActivity" />
-        <activity android:name=".CategoryActivity"
-            android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity
+            android:name=".CategoryActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
