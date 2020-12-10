@@ -7,7 +7,6 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.ListView
 import android.widget.SimpleAdapter
 import androidx.appcompat.app.AppCompatActivity
@@ -21,7 +20,7 @@ import de.hdodenhof.circleimageview.CircleImageView
 //import com.github.mikephil.charting.utils.ColorTemplate
 //import kotlinx.android.synthetic.main.fragment_diagram_circle.*
 
-//class findView(val profile: View,val listView: ListView, addOperation: View)
+class findView(val profile: View,val listView: ListView, addOperation: View)
 class MainActivity : AppCompatActivity() {
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
@@ -33,13 +32,13 @@ class MainActivity : AppCompatActivity() {
 
         val profile = findViewById<CircleImageView>(R.id.profile)
         val listView: ListView = findViewById(R.id.operations_list)
-        val addOperation = findViewById<ImageView>(R.id.add_btn)
-
+        val addOperation = findViewById<CircleImageView>(R.id.add_btn)
         setOnClick(profile,addOperation)
-
         val arrayList: ArrayList<HashMap<String, String>> = ArrayList()
         var map: HashMap<String, String>
         //fgh
+
+
         map = HashMap()
         map["date"] = "07.06.2020"
         map["category"] = "Food"
@@ -106,7 +105,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         addOperation.setOnClickListener {
-            startActivity(Intent(this, CategoryActivity::class.java).putExtra("account", 0))
+            startActivity(Intent(this, CategoryActivity::class.java))
         }
     }
+
 }
