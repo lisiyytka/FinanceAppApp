@@ -8,7 +8,9 @@ lateinit var AUTH:FirebaseAuth
 lateinit var REF_DATABASE_ROOT:DatabaseReference
 
 const val NODE_USERS = "users"
-//const val
+const val CHILD_ID = "id"
+const val CHILD_PHONE = "phone"
+const val CHILD_USERNAME = "username"
 
 fun initFirebase(){
     AUTH = FirebaseAuth.getInstance()

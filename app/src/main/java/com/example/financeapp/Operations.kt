@@ -20,4 +20,6 @@ class Operation {
     constructor() {
 
     }
+
+
 }

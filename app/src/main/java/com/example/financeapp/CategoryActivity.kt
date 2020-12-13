@@ -45,7 +45,6 @@ class CategoryActivity : AppCompatActivity() {
                  value.text.toString(), isExpenses, "Another")
             REF_DATABASE_ROOT.child(operation.UserId.toString()).setValue(operation)
             startActivity(Intent(this, MainActivity::class.java))
-
         }
     }
 }

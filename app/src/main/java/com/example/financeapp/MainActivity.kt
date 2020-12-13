@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        initFirebase()
         val profile = findViewById<CircleImageView>(R.id.profile)
         val listView: ListView = findViewById(R.id.operations_list)
         val addOperation = findViewById<CircleImageView>(R.id.add_btn)
