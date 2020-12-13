@@ -72,6 +72,22 @@
                 android:textCursorDrawable="@color/dark_blue"
                 android:textSize="24sp" />
 
+            <EditText
+                android:id="@+id/reg_balance"
+                style="@style/font_roboto_regular_blue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="37dp"
+                android:paddingHorizontal="20dp"
+                android:background="@drawable/operation_sum_bg"
+                android:ems="10"
+                android:hint="Баланс"
+                android:inputType="textPassword"
+                android:textColorLink="@color/dark_blue"
+                android:textCursorDrawable="@color/dark_blue"
+                android:textSize="24sp" />
+
             <CheckBox
                 android:id="@+id/checkbox"
                 android:layout_width="match_parent"
