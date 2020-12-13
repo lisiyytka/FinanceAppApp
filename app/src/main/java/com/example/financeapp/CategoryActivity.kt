@@ -41,9 +41,9 @@ class CategoryActivity : AppCompatActivity() {
                 isExpenses = true
             else
                 isExpenses = false
-             val operation = Operation("123", "228", comment.text.toString(),
+             val operation = Operation("228", comment.text.toString(),
                  value.text.toString(), isExpenses, "Another")
-            REF_DATABASE_ROOT.child(operation.UserId.toString()).setValue(operation)
+            REF_DATABASE_ROOT.child(operation.UserLogin.toString()).setValue(operation)
             startActivity(Intent(this, MainActivity::class.java))
         }
     }
