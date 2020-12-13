@@ -15,15 +15,7 @@ class CategoryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_category)
-
-        val enter = findViewById<EditText>(R.id.comment_text)
         setOnClick()
-        enter.setOnEditorActionListener { v, actionId, event ->
-            if (event.action == KeyEvent.ACTION_DOWN &&event.keyCode == KeyEvent.KEYCODE_ENTER) {
-                startActivity(Intent(this, MainActivity::class.java))
-            }
-            false
-        }
     }
 
     fun setOnClick(){
@@ -38,6 +30,12 @@ class CategoryActivity : AppCompatActivity() {
             if (changeOperation.text == "+")
                 changeOperation.text = "-"
             else changeOperation.text = "+"
+        }
+
+        val accept = findViewById<ImageView>(R.id.okey)
+        accept.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+
         }
     }
 }
