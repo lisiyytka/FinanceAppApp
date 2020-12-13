@@ -34,6 +34,16 @@ class CategoryActivity : AppCompatActivity() {
 
         val accept = findViewById<ImageView>(R.id.okey)
         accept.setOnClickListener {
+            val value = findViewById<EditText>(R.id.operation_sum)
+            val comment = findViewById<EditText>(R.id.comment_text)
+            var isExpenses: Boolean? = null
+            if (changeOperation.text == "+")
+                isExpenses = true
+            else
+                isExpenses = false
+             val operation = Operation("123", "228", comment.text.toString(),
+                 value.text.toString(), isExpenses, "Another")
+            REF_DATABASE_ROOT.child(operation.UserId.toString()).setValue(operation)
             startActivity(Intent(this, MainActivity::class.java))
 
         }
