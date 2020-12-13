@@ -37,27 +37,28 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
 
     fun insertUser(user: User) {
         val db = this.writableDatabase
-        var cv = ContentValues()
+        val cv = ContentValues()
         cv.put(COL_LOGIN, user.Login)
-        cv.put(COL_NAME, user.Name)
-        cv.put(COL_SURNAME, user.Surname)
         cv.put(COL_PASSWORD, user.Password)
         cv.put(COL_PIN, user.PIN)
-        cv.put(COL_BALANCE, user.Balance)
+        cv.put(COL_NAME, user.Name)
         cv.put(COL_PHONE, user.Phone)
+        cv.put(COL_BALANCE, user.Balance)
+        cv.put(COL_SURNAME, user.Surname)
 
-        var result = db.insert(TABLE_NAME, null, cv)
+        db.insert(TABLE_NAME, null, cv)
 //        if (result == -1.toLong())
 //            Toast.makeText(context, "Failed!", Toast.LENGTH_SHORT).show()
 //        else
 //            Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show()
     }
 
-//    fun readData(): MutableList<Field> {
-//        var list: MutableList<Field> = ArrayList()
-//        val db = this.readableDatabase
-//        val query = "Select * from " + TABLE_NAME
-//        val result = db.rawQuery(query, null)
+    fun findUser(login: String): User? {
+        val list: MutableList<User> = ArrayList()
+        val user = User()
+        val db = this.readableDatabase
+        val query = "Select * from $TABLE_NAME Where $COL_LOGIN = $login"
+        val result = db.rawQuery(query, null)
 //        if (result.moveToFirst()) {
 //            do {
 //                var field = Field()
@@ -72,14 +73,28 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
 //                list.add(field)
 //            } while (result.moveToNext())
 //        }
-//        result.close()
-//        db.close()
-//        return list
-//    }
-//
-//    fun deleteData(){
-//        val db = this.writableDatabase
-//        db.delete(TABLE_NAME,null,null)
-//        db.close()
-//    }
+        if (result.moveToFirst()){
+            user.Name = result.getString(result.getColumnIndex(COL_NAME)).toString()
+            user.Balance = result.getString(result.getColumnIndex(COL_BALANCE)).toString()
+            user.Surname = result.getString(result.getColumnIndex(COL_SURNAME)).toString()
+            user.Phone = result.getString(result.getColumnIndex(COL_PHONE)).toString()
+            user.PIN = result.getString(result.getColumnIndex(COL_PIN)).toString()
+            user.Password = result.getString(result.getColumnIndex(COL_PASSWORD)).toString()
+            user.Login = result.getString(result.getColumnIndex(COL_LOGIN)).toString()
+        }
+        else {
+            result.close()
+            db.close()
+            return null
+        }
+        result.close()
+        db.close()
+        return user
+    }
+
+    fun deleteData(){
+        val db = this.writableDatabase
+        db.delete(TABLE_NAME,null,null)
+        db.close()
+    }
 }
