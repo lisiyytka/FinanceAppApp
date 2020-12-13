@@ -17,7 +17,7 @@ val COL_SURNAME= "Surname"
 val COL_PHONE= "Phone"
 val COL_BALANCE= "Balance"
 
-class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,null,1) {
+class LocalDataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,null,1) {
     override fun onCreate(db: SQLiteDatabase?) {
 
         val createTable = "CREATE TABLE " + TABLE_NAME + " (" +
@@ -53,11 +53,11 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
 //            Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show()
     }
 
-    fun findUser(login: String): User? {
+    fun getUser(): User? {
         val list: MutableList<User> = ArrayList()
         val user = User()
         val db = this.readableDatabase
-        val query = "Select * from $TABLE_NAME Where $COL_LOGIN = $login"
+        val query = "Select * from $TABLE_NAME"
         val result = db.rawQuery(query, null)
 //        if (result.moveToFirst()) {
 //            do {

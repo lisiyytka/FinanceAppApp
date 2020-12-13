@@ -12,6 +12,9 @@ import androidx.appcompat.app.AppCompatActivity
 
 
 class CategoryActivity : AppCompatActivity() {
+    val Local_db_helper = LocalDataBaseHandler(this)
+    val LocalUser: User? = Local_db_helper.getUser()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_category)
@@ -36,14 +39,10 @@ class CategoryActivity : AppCompatActivity() {
         accept.setOnClickListener {
             val value = findViewById<EditText>(R.id.operation_sum)
             val comment = findViewById<EditText>(R.id.comment_text)
-            var isExpenses: Boolean? = null
-            if (changeOperation.text == "+")
-                isExpenses = true
-            else
-                isExpenses = false
+            val isExpenses = changeOperation.text == "+"
              val operation = Operation("228", comment.text.toString(),
                  value.text.toString(), isExpenses, "Another")
-            REF_DATABASE_ROOT.child(operation.UserLogin.toString()).setValue(operation)
+            REF_DATABASE_ROOT.child("Operations").child(LocalUser!!.Login.toString()).setValue(operation)
             startActivity(Intent(this, MainActivity::class.java))
         }
     }
