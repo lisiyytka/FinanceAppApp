@@ -11,8 +11,8 @@ class User {
 
     constructor(){}
 
-    constructor(login: String, name: String, surname: String, password: String,
-                phone: String, balance: String, PIN: String)
+    constructor(login: String?, name: String?, surname: String?, password: String?,
+                phone: String?, balance: String?, PIN: String?)
     {
         this.Login = login
         this.Name = name

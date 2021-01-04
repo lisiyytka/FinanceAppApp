@@ -12,8 +12,8 @@ import androidx.appcompat.app.AppCompatActivity
 
 
 class CategoryActivity : AppCompatActivity() {
-    val Local_db_helper = LocalDataBaseHandler(this)
-    val LocalUser: User? = Local_db_helper.getUser()
+//    val Local_db_helper = LocalDataBaseHandler(this)
+//    val LocalUser: User? = Local_db_helper.getUser()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,9 +40,9 @@ class CategoryActivity : AppCompatActivity() {
             val value = findViewById<EditText>(R.id.operation_sum)
             val comment = findViewById<EditText>(R.id.comment_text)
             val isExpenses = changeOperation.text == "+"
-             val operation = Operation("228", comment.text.toString(),
-                 value.text.toString(), isExpenses, "Another")
-            REF_DATABASE_ROOT.child("Operations").child(LocalUser!!.Login.toString()).setValue(operation)
+//             val operation = Operation(LocalUser?.Balance.toString(), comment.text.toString(),
+//                 value.text.toString(), isExpenses, "Another")
+//            REF_DATABASE_ROOT.child("Operations").child(LocalUser!!.Login.toString()).setValue(operation)
             startActivity(Intent(this, MainActivity::class.java))
         }
     }

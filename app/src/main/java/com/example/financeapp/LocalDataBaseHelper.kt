@@ -6,7 +6,6 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.widget.Toast
 import java.security.AccessControlContext
-
 val DATABASE_NAME = "MyDB"
 val TABLE_NAME = "Users"
 val COL_LOGIN = "Login"
@@ -18,10 +17,12 @@ val COL_PHONE= "Phone"
 val COL_BALANCE= "Balance"
 
 class LocalDataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,null,1) {
+
+
     override fun onCreate(db: SQLiteDatabase?) {
 
         val createTable = "CREATE TABLE " + TABLE_NAME + " (" +
-                COL_LOGIN + " VARCHAR(256) PRIMARY KEY AUTOINCREMENT, " +
+                COL_LOGIN + " VARCHAR(256) PRIMARY KEY, " +
                 COL_PASSWORD + " VARCHAR(256), " +
                 COL_PIN + " VARCHAR(256), " +
                 COL_NAME + " VARCHAR(256), " +
@@ -40,11 +41,11 @@ class LocalDataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DAT
         val cv = ContentValues()
         cv.put(COL_LOGIN, user.Login)
         cv.put(COL_PASSWORD, user.Password)
-        cv.put(COL_PIN, user.PIN)
-        cv.put(COL_NAME, user.Name)
-        cv.put(COL_PHONE, user.Phone)
+        cv.put(COL_PIN, "user.PIN")
+        cv.put(COL_NAME, "user.Name")
+        cv.put(COL_PHONE, "user.Phone")
         cv.put(COL_BALANCE, user.Balance)
-        cv.put(COL_SURNAME, user.Surname)
+        cv.put(COL_SURNAME, "user.Surname")
 
         db.insert(TABLE_NAME, null, cv)
 //        if (result == -1.toLong())
@@ -74,6 +75,7 @@ class LocalDataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DAT
 //            } while (result.moveToNext())
 //        }
         if (result.moveToFirst()){
+            do {
             user.Name = result.getString(result.getColumnIndex(COL_NAME)).toString()
             user.Balance = result.getString(result.getColumnIndex(COL_BALANCE)).toString()
             user.Surname = result.getString(result.getColumnIndex(COL_SURNAME)).toString()
@@ -81,11 +83,7 @@ class LocalDataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DAT
             user.PIN = result.getString(result.getColumnIndex(COL_PIN)).toString()
             user.Password = result.getString(result.getColumnIndex(COL_PASSWORD)).toString()
             user.Login = result.getString(result.getColumnIndex(COL_LOGIN)).toString()
-        }
-        else {
-            result.close()
-            db.close()
-            return null
+            } while (result.moveToNext())
         }
         result.close()
         db.close()

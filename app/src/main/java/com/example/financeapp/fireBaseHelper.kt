@@ -20,15 +20,15 @@ fun getUserByLogin(login: String){
     REF_DATABASE_ROOT.child(NODE_USERS).orderByChild(CHILD_LOGIN).equalTo(login);
 }
 
-fun proverka(): Operation?{
-    val ref = REF_DATABASE_ROOT.child("123")
-    var user: Operation? = null
+fun proverka(): User?{
+    val ref = REF_DATABASE_ROOT.child("Users")
+    var user: User? = null
     val menuListener = object : ValueEventListener {
         override fun onCancelled(databaseError: DatabaseError) {
             // handle error
         }
         override fun onDataChange(dataSnapshot: DataSnapshot) {
-            user = dataSnapshot.getValue() as Operation
+            user = dataSnapshot.getValue() as User
         }
     }
     ref.addListenerForSingleValueEvent(menuListener)
