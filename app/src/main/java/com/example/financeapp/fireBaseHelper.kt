@@ -1,15 +1,20 @@
 package com.example.financeapp
 
+import android.view.View
+import android.widget.TextView
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+
 
 lateinit var AUTH:FirebaseAuth
 lateinit var REF_DATABASE_ROOT:DatabaseReference
 
-const val NODE_USERS = "users"
+const val NODE_USERS = "Users"
 const val CHILD_LOGIN = "login"
 const val CHILD_PHONE = "phone"
 const val CHILD_USERNAME = "username"
+
 
 fun initFirebase(){
     AUTH = FirebaseAuth.getInstance()
@@ -17,22 +22,22 @@ fun initFirebase(){
 }
 
 fun getUserByLogin(login: String){
-    REF_DATABASE_ROOT.child(NODE_USERS).orderByChild(CHILD_LOGIN).equalTo(login);
+    REF_DATABASE_ROOT.child(NODE_USERS).equalTo(login);
 }
 
-fun proverka(): User?{
-    val ref = REF_DATABASE_ROOT.child("Users")
-    var user: User? = null
-    val menuListener = object : ValueEventListener {
+fun proverka(view: TextView){
+    initFirebase()
+    val ref = REF_DATABASE_ROOT.child(NODE_USERS)
+    val listener =object: ValueEventListener {
         override fun onCancelled(databaseError: DatabaseError) {
             // handle error
         }
         override fun onDataChange(dataSnapshot: DataSnapshot) {
-            user = dataSnapshot.getValue() as User
+            val user = dataSnapshot.getValue(User::class.java)
+            view.text = user?.login.toString()
         }
     }
-    ref.addListenerForSingleValueEvent(menuListener)
-    return user
+    ref.addValueEventListener(listener)
 }
 
 

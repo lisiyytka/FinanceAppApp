@@ -39,12 +39,12 @@ class LocalDataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DAT
     fun insertUser(user: User) {
         val db = this.writableDatabase
         val cv = ContentValues()
-        cv.put(COL_LOGIN, user.Login)
-        cv.put(COL_PASSWORD, user.Password)
+        cv.put(COL_LOGIN, user.login)
+        cv.put(COL_PASSWORD, user.password)
         cv.put(COL_PIN, "user.PIN")
         cv.put(COL_NAME, "user.Name")
         cv.put(COL_PHONE, "user.Phone")
-        cv.put(COL_BALANCE, user.Balance)
+        cv.put(COL_BALANCE, user.balance)
         cv.put(COL_SURNAME, "user.Surname")
 
         db.insert(TABLE_NAME, null, cv)
@@ -76,13 +76,13 @@ class LocalDataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DAT
 //        }
         if (result.moveToFirst()){
             do {
-            user.Name = result.getString(result.getColumnIndex(COL_NAME)).toString()
-            user.Balance = result.getString(result.getColumnIndex(COL_BALANCE)).toString()
-            user.Surname = result.getString(result.getColumnIndex(COL_SURNAME)).toString()
-            user.Phone = result.getString(result.getColumnIndex(COL_PHONE)).toString()
-            user.PIN = result.getString(result.getColumnIndex(COL_PIN)).toString()
-            user.Password = result.getString(result.getColumnIndex(COL_PASSWORD)).toString()
-            user.Login = result.getString(result.getColumnIndex(COL_LOGIN)).toString()
+            user.name = result.getString(result.getColumnIndex(COL_NAME)).toString()
+            user.balance = result.getString(result.getColumnIndex(COL_BALANCE)).toString()
+            user.surname = result.getString(result.getColumnIndex(COL_SURNAME)).toString()
+            user.phone = result.getString(result.getColumnIndex(COL_PHONE)).toString()
+            user.pin = result.getString(result.getColumnIndex(COL_PIN)).toString()
+            user.password = result.getString(result.getColumnIndex(COL_PASSWORD)).toString()
+            user.login = result.getString(result.getColumnIndex(COL_LOGIN)).toString()
             } while (result.moveToNext())
         }
         result.close()

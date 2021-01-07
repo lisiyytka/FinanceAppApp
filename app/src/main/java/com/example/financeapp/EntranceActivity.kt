@@ -24,14 +24,8 @@ class EntranceActivity : AppCompatActivity() {
         }
 
         next.setOnClickListener {
-            val local_db_helper = LocalDataBaseHandler(this)
-            val user = local_db_helper.getUser()
-            val login = findViewById<EditText>(R.id.login)
-            val password = findViewById<EditText>(R.id.password)
-            if (user != null)
-                Toast.makeText(this,user.Login + user.Balance + user.Password, Toast.LENGTH_LONG).show()
-
-
+            val text = findViewById<TextView>(R.id.entrance_txt)
+            proverka(text)
         }
     }
 }
