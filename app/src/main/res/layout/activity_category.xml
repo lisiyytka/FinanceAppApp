@@ -61,7 +61,7 @@
         <LinearLayout
             android:id="@+id/operation_part"
             style="@style/linear_layout_height_zero_v"
-            android:layout_weight="3"
+            android:layout_weight="4"
             android:background="@drawable/operation_background">
 
             <LinearLayout
@@ -70,17 +70,14 @@
                 android:layout_weight="2"
                 tools:ignore="NestedWeights">
 
-                <TextView
-                    android:id="@+id/change_operation"
+                <ImageView
+                    android:id="@+id/qr"
                     android:layout_width="65dp"
                     android:layout_height="65dp"
-                    android:layout_marginTop="26dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginStart="26dp"
                     android:gravity="center"
-                    android:background="@drawable/operation_change_btn_background"
-                    style="@style/font_roboto_regular_white"
-                    android:textSize="36sp"
-                    android:text="+"/>
+                    android:background="@drawable/qr_code"/>
 
                 <EditText
                     android:id="@+id/operation_sum"
@@ -88,7 +85,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="26dp"
-                    android:layout_marginTop="26dp"
+                    android:layout_marginTop="20dp"
                     android:background="@drawable/operation_sum_bg"
                     android:ems="7"
                     android:hint="0"
@@ -98,6 +95,26 @@
                     android:textColorLink="@color/dark_blue"
                     android:textCursorDrawable="@color/dark_blue"
                     android:textSize="36sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ch_part"
+                style="@style/linear_layout_height_zero_h"
+                android:layout_weight="1"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/change_operation"
+                    style="@style/font_roboto_regular_white"
+                    android:layout_width="352dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="26dp"
+                    android:background="@drawable/operation_change_btn_background"
+                    android:gravity="center"
+                    android:paddingHorizontal="10dp"
+                    android:text="Доход"
+                    android:textSize="20sp" />
 
             </LinearLayout>
 

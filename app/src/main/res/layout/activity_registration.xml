@@ -36,57 +36,70 @@
         <LinearLayout
             android:id="@+id/edit_part"
             style="@style/linear_layout_height_zero_v"
-            android:layout_weight="3">
+            android:layout_weight="5">
 
             <EditText
                 android:id="@+id/login"
-                style="@style/font_roboto_regular_blue"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                style="@style/reg"
                 android:layout_marginTop="25dp"
                 android:paddingHorizontal="20dp"
                 android:layout_marginHorizontal="37dp"
-                android:background="@drawable/operation_sum_bg"
-                android:ems="10"
                 android:hint="Логин"
-                android:inputType="text"
-                android:textColorLink="@color/dark_blue"
-                android:textCursorDrawable="@color/dark_blue"
-                android:textSize="24sp" />
+                android:inputType="text"/>
+
+            <EditText
+                android:id="@+id/name"
+                style="@style/reg"
+                android:layout_marginTop="13dp"
+                android:layout_marginHorizontal="37dp"
+                android:paddingHorizontal="20dp"
+                android:hint="Имя"
+                android:inputType="text"/>
+
+            <EditText
+                android:id="@+id/surname"
+                style="@style/reg"
+                android:layout_marginTop="13dp"
+                android:layout_marginHorizontal="37dp"
+                android:paddingHorizontal="20dp"
+                android:hint="Фамилия"
+                android:inputType="text"/>
+
+            <EditText
+                android:id="@+id/phone"
+                style="@style/reg"
+                android:layout_marginTop="13dp"
+                android:layout_marginHorizontal="37dp"
+                android:paddingHorizontal="20dp"
+                android:hint="Телефон"
+                android:inputType="phone"/>
+
+            <EditText
+                android:id="@+id/balance"
+                style="@style/reg"
+                android:layout_marginTop="13dp"
+                android:layout_marginHorizontal="37dp"
+                android:paddingHorizontal="20dp"
+                android:hint="Баланс"
+                android:inputType="number"/>
 
             <EditText
                 android:id="@+id/password"
-                style="@style/font_roboto_regular_blue"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginVertical="13dp"
+                style="@style/reg"
+                android:layout_marginTop="13dp"
                 android:layout_marginHorizontal="37dp"
                 android:paddingHorizontal="20dp"
-                android:background="@drawable/operation_sum_bg"
-                android:ems="10"
                 android:hint="Пароль"
-                android:inputType="textPassword"
-                android:textColorLink="@color/dark_blue"
-                android:textCursorDrawable="@color/dark_blue"
-                android:textSize="24sp" />
+                android:inputType="textPassword"/>
 
             <EditText
-                android:id="@+id/reg_balance"
-                style="@style/font_roboto_regular_blue"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:id="@+id/pin"
+                style="@style/reg"
+                android:layout_marginTop="13dp"
                 android:layout_marginHorizontal="37dp"
                 android:paddingHorizontal="20dp"
-                android:background="@drawable/operation_sum_bg"
-                android:ems="10"
-                android:hint="Баланс"
-                android:inputType="textPassword"
-                android:textColorLink="@color/dark_blue"
-                android:textCursorDrawable="@color/dark_blue"
-                android:textSize="24sp" />
+                android:hint="ПИН-код"
+                android:inputType="numberPassword"/>
 
             <CheckBox
                 android:id="@+id/checkbox"

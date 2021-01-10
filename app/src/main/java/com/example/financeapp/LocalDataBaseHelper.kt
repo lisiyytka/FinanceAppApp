@@ -36,7 +36,7 @@ class LocalDataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DAT
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    fun insertUser(user: User) {
+    fun insertUser(user: DataUser) {
         val db = this.writableDatabase
         val cv = ContentValues()
         cv.put(COL_LOGIN, user.login)
@@ -46,7 +46,6 @@ class LocalDataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DAT
         cv.put(COL_PHONE, "user.Phone")
         cv.put(COL_BALANCE, user.balance)
         cv.put(COL_SURNAME, "user.Surname")
-
         db.insert(TABLE_NAME, null, cv)
 //        if (result == -1.toLong())
 //            Toast.makeText(context, "Failed!", Toast.LENGTH_SHORT).show()
@@ -54,9 +53,9 @@ class LocalDataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DAT
 //            Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show()
     }
 
-    fun getUser(): User? {
+    fun getUser(): DataUser? {
         val list: MutableList<User> = ArrayList()
-        val user = User()
+        val user = DataUser()
         val db = this.readableDatabase
         val query = "Select * from $TABLE_NAME"
         val result = db.rawQuery(query, null)

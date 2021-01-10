@@ -1,5 +1,7 @@
 package com.example.financeapp
 
+import android.content.Context
+import android.widget.TextView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener

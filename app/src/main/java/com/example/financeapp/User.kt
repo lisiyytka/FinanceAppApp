@@ -22,5 +22,4 @@ class User {
         this.balance = balance
         this.pin = PIN
     }
-
 }

@@ -12,10 +12,16 @@ class EntranceActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_entrance)
+        initFirebase()
         val registration = findViewById<TextView>(R.id.registration_btn)
         val next = findViewById<ImageView>(R.id.next_btn)
         setOnClick(registration, next)
 
+//        next.setOnClickListener {
+////            val text = findViewById<TextView>(R.id.entrance_txt)
+////            proverka(text)
+//            startActivity(Intent(this, MainActivity::class.java))
+//        }
     }
 
     fun setOnClick(registration: View, next: View) {
@@ -23,9 +29,13 @@ class EntranceActivity : AppCompatActivity() {
             startActivity(Intent(this, RegistrationActivity::class.java))
         }
 
-        next.setOnClickListener {
-            val text = findViewById<TextView>(R.id.entrance_txt)
-            proverka(text)
-        }
+       next.setOnClickListener {
+//           val prov = findViewById<TextView>(R.id.entrance_txt)
+//           val log = "lisiy"
+//           var xuinya: DataUser = DataUser()
+//           xuinya = getUserByLogin(log, xuinya, prov)
+//           prov.text = xuinya.balance
+           startActivity(Intent(this, MainActivity::class.java))
+       }
     }
 }
