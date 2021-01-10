@@ -22,6 +22,8 @@ class RegistrationActivity : AppCompatActivity() {
         val check = findViewById<CheckBox>(R.id.checkbox)
         val login = findViewById<EditText>(R.id.login)
         val password = findViewById<EditText>(R.id.password)
+        val prov = findViewById<TextView>(R.id.budget)
+        fireBaseHelp(this)
         setOnClick(entrance, next)
     }
 

@@ -47,7 +47,7 @@ fun xui(aaa: DataUser?): DataUser?{
     return a
 }
 
-fun fireBaseHelp( context: Context): String{
+fun fireBaseHelp( context: Context){
     val log = "lisiy"
 //    val prov = findViewById<TextView>(R.id.budget)
     val addd = LocalDataBaseHandler(context)
@@ -59,8 +59,6 @@ fun fireBaseHelp( context: Context): String{
             addd.insertUser(user)
         }
     })
-    var a = addd.getUser()!!.balance
-    return a
 }
 
 

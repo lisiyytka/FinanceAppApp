@@ -101,9 +101,12 @@ class MainActivity : AppCompatActivity() {
         )
         listView.adapter = adapter
 
-        val log = "lisiy"
+        val log = "123"
         val prov = findViewById<TextView>(R.id.budget)
         fireBaseHelp(this)
+        val addd = LocalDataBaseHandler(this)
+        var aa = addd.getUser()!!.balance
+        prov.text = aa
     }
 
     fun setOnClick(profile: View ,addOperation: View) {
