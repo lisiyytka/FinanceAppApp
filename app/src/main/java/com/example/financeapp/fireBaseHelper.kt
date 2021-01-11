@@ -18,9 +18,8 @@ lateinit var AUTH:FirebaseAuth
 lateinit var REF_DATABASE_ROOT:DatabaseReference
 
 const val NODE_USERS = "Users"
-const val CHILD_LOGIN = "login"
-const val CHILD_PHONE = "phone"
-const val CHILD_USERNAME = "username"
+const val NODE_OPERATIONS = "Operations"
+
 
 
 fun initFirebase(){
@@ -66,6 +65,23 @@ fun makeToast(context: Context,arg:String){
     Toast.makeText(context,arg,Toast.LENGTH_LONG).show()
 }
 
+fun getIncomeAndLosses(user:DataUser, IncomeView:TextView, LossView:TextView){
+    var income = IncomeView.text.toString().toInt()
+    var loss = LossView.text.toString().toInt()
+    REF_DATABASE_ROOT.child(NODE_OPERATIONS).child(user.login).addListenerForSingleValueEvent(
+        AppValueEventListener {
+            for (child in it.children) {
+                val operation = child.getValue(Operation::class.java)
+                if (operation != null)
+                    if (operation.IsExpenses)
+                        income += operation.Operation_operation.toInt()
+                    else
+                        loss += operation.Operation_operation.toInt()
+            }
+            IncomeView.text = "+$income"
+            LossView.text = "-$loss"
+        })
+}
 
 
 

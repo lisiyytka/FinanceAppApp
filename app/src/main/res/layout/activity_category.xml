@@ -163,7 +163,7 @@
                         <ImageView
                             android:id="@+id/food"
                             style="@style/img_cat"
-                            android:src="@drawable/food"/>
+                            android:src="@drawable/food" />
                         <ImageView
                             android:id="@+id/car"
                             style="@style/img_cat"

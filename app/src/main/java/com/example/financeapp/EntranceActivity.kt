@@ -39,7 +39,6 @@ class EntranceActivity : AppCompatActivity() {
             if(checkedUser.login==login && checkedUser.password == pswrd)
                 startActivity(Intent(this, LoadScreen::class.java))
             else{
-                if(checkedUser.login == "")
                     REF_DATABASE_ROOT.child(NODE_USERS).addListenerForSingleValueEvent(
                         AppValueEventListener {
                             if (it.hasChild(login)) {

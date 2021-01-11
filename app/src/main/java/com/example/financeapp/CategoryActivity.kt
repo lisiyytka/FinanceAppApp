@@ -9,6 +9,8 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import java.time.LocalDateTime
+import java.time.LocalTime
 
 
 class CategoryActivity : AppCompatActivity() {
@@ -19,6 +21,9 @@ class CategoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_category)
         setOnClick()
+        val carCategory = findViewById<ImageView>(R.id.car)
+        val comment = findViewById<EditText>(R.id.comment_text)
+        initFirebase()
     }
 
     fun setOnClick(){
@@ -42,10 +47,19 @@ class CategoryActivity : AppCompatActivity() {
             val isExpenses = changeOperation.text == "Прибыль"
             val localBd = LocalDataBaseHandler(this)
             val user = localBd.getUser()
+            var date = ""
+            date = DateHelper.getDate()
              val operation = Operation(user.balance, comment.text.toString(),
-                 value.text.toString(), isExpenses, "Another")
-            REF_DATABASE_ROOT.child("Operations").child(user.login).setValue(operation)
-            startActivity(Intent(this, MainActivity::class.java))
+                 value.text.toString(), isExpenses, "Another", date)
+            REF_DATABASE_ROOT.child("Operations").child(user.login).child(date).setValue(operation)
+            if (isExpenses)
+                user.balance = (user.balance.toInt() + operation.Operation_operation.toInt()).toString()
+            else
+                user.balance = (user.balance.toInt() - operation.Operation_operation.toInt()).toString()
+            REF_DATABASE_ROOT.child("Users").child(user.login).setValue(user)
+            localBd.deleteData()
+            localBd.insertUser(user)
+            startActivity(Intent(this, LoadScreen::class.java))
         }
     }
 }

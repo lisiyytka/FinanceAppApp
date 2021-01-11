@@ -38,7 +38,6 @@ class RegistrationActivity : AppCompatActivity() {
 
         next.setOnClickListener {
             onRightEnter(check, login, password, reg_balance, name, surname, phone, PIN)
-            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 

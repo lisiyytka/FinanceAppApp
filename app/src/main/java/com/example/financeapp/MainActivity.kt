@@ -40,6 +40,8 @@ class MainActivity : AppCompatActivity() {
         val profile = findViewById<CircleImageView>(R.id.profile)
         val listView: ListView = findViewById(R.id.operations_list)
         val addOperation = findViewById<CircleImageView>(R.id.add_btn)
+        val income = findViewById<TextView>(R.id.income_sum)
+        val loss = findViewById<TextView>(R.id.expenses_sum)
         setOnClick(profile,addOperation)
         val arrayList: ArrayList<HashMap<String, String>> = ArrayList()
         var map: HashMap<String, String>
@@ -104,8 +106,9 @@ class MainActivity : AppCompatActivity() {
 //        val log = "123"
         val prov = findViewById<TextView>(R.id.budget)
         val addd = LocalDataBaseHandler(this)
-        var aa = addd.getUser()!!.balance
-        prov.text = aa
+        val user = addd.getUser()
+        prov.text = user.balance
+        getIncomeAndLosses(user, income, loss)
     }
 
     fun setOnClick(profile: View ,addOperation: View) {
