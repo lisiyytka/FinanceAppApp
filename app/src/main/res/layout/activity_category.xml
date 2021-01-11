@@ -113,7 +113,6 @@
                     android:background="@drawable/operation_change_btn_background"
                     android:gravity="center"
                     android:paddingHorizontal="10dp"
-                    android:text="Доход"
                     android:textSize="20sp" />
 
             </LinearLayout>

@@ -30,19 +30,21 @@ class CategoryActivity : AppCompatActivity() {
 
         val changeOperation = findViewById<TextView>(R.id.change_operation)
         changeOperation.setOnClickListener {
-            if (changeOperation.text == "+")
-                changeOperation.text = "-"
-            else changeOperation.text = "+"
+            if (changeOperation.text == "Прибыль")
+                changeOperation.text = "Затраты"
+            else changeOperation.text = "Прибыль"
         }
 
         val accept = findViewById<ImageView>(R.id.okey)
         accept.setOnClickListener {
             val value = findViewById<EditText>(R.id.operation_sum)
             val comment = findViewById<EditText>(R.id.comment_text)
-            val isExpenses = changeOperation.text == "+"
-//             val operation = Operation(LocalUser?.Balance.toString(), comment.text.toString(),
-//                 value.text.toString(), isExpenses, "Another")
-//            REF_DATABASE_ROOT.child("Operations").child(LocalUser!!.Login.toString()).setValue(operation)
+            val isExpenses = changeOperation.text == "Прибыль"
+            val localBd = LocalDataBaseHandler(this)
+            val user = localBd.getUser()
+             val operation = Operation(user.balance, comment.text.toString(),
+                 value.text.toString(), isExpenses, "Another")
+            REF_DATABASE_ROOT.child("Operations").child(user.login).setValue(operation)
             startActivity(Intent(this, MainActivity::class.java))
         }
     }

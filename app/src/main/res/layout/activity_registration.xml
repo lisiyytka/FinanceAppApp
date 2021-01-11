@@ -95,11 +95,11 @@
             <EditText
                 android:id="@+id/pin"
                 style="@style/reg"
-                android:layout_marginTop="13dp"
                 android:layout_marginHorizontal="37dp"
-                android:paddingHorizontal="20dp"
+                android:layout_marginTop="13dp"
                 android:hint="ПИН-код"
-                android:inputType="numberPassword"/>
+                android:inputType="numberPassword"
+                android:paddingHorizontal="20dp" />
 
             <CheckBox
                 android:id="@+id/checkbox"
@@ -123,16 +123,16 @@
 
             <TextView
                 android:id="@+id/already_have_acc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
-                android:layout_marginHorizontal="14dp"
                 style="@style/font_roboto_regular_dark_gray"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="14dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="200dp"
                 android:gravity="center"
-                android:textSize="24sp"
+                android:text="Уже есть аккаунт?"
                 android:textColor="@color/txt_gray"
-                android:text="Уже есть аккаунт?"/>
-
+                android:textSize="24sp" />
 
         </LinearLayout>
 

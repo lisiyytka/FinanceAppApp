@@ -4,12 +4,14 @@ import android.content.Context
 import android.content.Intent
 import android.provider.ContactsContract
 import android.view.View
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import java.util.ArrayList
 import javax.security.auth.callback.Callback
+import com.example.financeapp.RegistrationActivity
 
 
 lateinit var AUTH:FirebaseAuth
@@ -42,23 +44,26 @@ fun getUserByLogin(login: String, firebaseCallback: FirebaseCallback){
     ref.addValueEventListener(listener)
 }
 
-fun xui(aaa: DataUser?): DataUser?{
-    val a= aaa
-    return a
-}
-
-fun fireBaseHelp( context: Context){
-    val log = "lisiy"
-//    val prov = findViewById<TextView>(R.id.budget)
+fun fireBaseHelp( context: Context, log: String){
     val addd = LocalDataBaseHandler(context)
     var user = DataUser()
     getUserByLogin(log, object: FirebaseCallback{
         override fun onCallback(list: MutableList<DataUser?>) {
             super.onCallback(list)
             user.balance = list[0]!!.balance
+            user.login = list[0]!!.login
+            user.name = list[0]!!.name
+            user.phone = list[0]!!.phone
+            user.pin = list[0]!!.pin
+            user.surname = list[0]!!.surname
+            user.password = list[0]!!.password
             addd.insertUser(user)
         }
     })
+}
+
+fun makeToast(context: Context,arg:String){
+    Toast.makeText(context,arg,Toast.LENGTH_LONG).show()
 }
 
 

@@ -27,7 +27,7 @@ import kotlin.coroutines.CoroutineContext
 //import com.github.mikephil.charting.utils.ColorTemplate
 //import kotlinx.android.synthetic.main.fragment_diagram_circle.*
 
-class findView(val profile: View,val listView: ListView, addOperation: View)
+lateinit var user: DataUser
 class MainActivity : AppCompatActivity() {
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
@@ -101,9 +101,8 @@ class MainActivity : AppCompatActivity() {
         )
         listView.adapter = adapter
 
-        val log = "123"
+//        val log = "123"
         val prov = findViewById<TextView>(R.id.budget)
-        fireBaseHelp(this)
         val addd = LocalDataBaseHandler(this)
         var aa = addd.getUser()!!.balance
         prov.text = aa

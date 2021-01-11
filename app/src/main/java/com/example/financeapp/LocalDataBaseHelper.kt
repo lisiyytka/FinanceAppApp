@@ -53,7 +53,7 @@ class LocalDataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DAT
 //            Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show()
     }
 
-    fun getUser(): DataUser? {
+    fun getUser(): DataUser {
         val list: MutableList<User> = ArrayList()
         val user = DataUser()
         val db = this.readableDatabase
