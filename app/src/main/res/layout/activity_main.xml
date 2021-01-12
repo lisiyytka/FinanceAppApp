@@ -29,20 +29,15 @@
                     android:id="@+id/budget"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="12sp"
+                    android:autoSizeMaxTextSize="69sp"
                     android:layout_marginStart="39dp"
                     android:layout_marginTop="24dp"
                     style="@style/font_roboto_medium_white"
                     android:textSize="69sp"/>
 <!--                    android:text="23000"/>-->
 
-                <TextView
-                    android:id="@+id/currency"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="72dp"
-                    style="@style/font_roboto_medium_white"
-                    android:textSize="23sp"
-                    android:text="руб."/>
             </LinearLayout>
 
             <LinearLayout

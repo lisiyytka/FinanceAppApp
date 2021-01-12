@@ -89,7 +89,7 @@ fun getOperations(user:DataUser): ArrayList<HashMap<String, String>> {
             AppValueEventListener {
                 for (child in it.children) {
                     val operation = child.getValue(Operation::class.java)
-                    if (operation != null) {
+                    if (operation != null){
                         map = HashMap()
                         map["date"] = operation.Date
                         map["category"] = operation.Category

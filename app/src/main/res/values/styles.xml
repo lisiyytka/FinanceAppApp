@@ -68,8 +68,8 @@
         <item name="android:layout_height">78dp</item>
         <item name="android:layout_marginTop">7dp</item>
         <item name="android:layout_marginBottom">7dp</item>
-        <item name="android:layout_marginStart">5dp</item>
-        <item name="android:layout_marginEnd">5dp</item>
+        <item name="android:layout_marginStart">7dp</item>
+        <item name="android:layout_marginEnd">7dp</item>
         <item name="android:layout_weight">1</item>
         <item name="android:foreground">@drawable/border_img_cat</item>
     </style>

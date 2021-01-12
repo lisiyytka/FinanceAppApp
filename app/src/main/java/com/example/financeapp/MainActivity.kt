@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         val prov = findViewById<TextView>(R.id.budget)
         val addd = LocalDataBaseHandler(this)
         val user = addd.getUser()
-        prov.text = user.balance
+        prov.text = user.balance+ "\n" +"руб"
         getIncomeAndLosses(user, income, loss)
         OperationList.reverse()
         val adapter = SimpleAdapter(
