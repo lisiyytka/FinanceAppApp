@@ -73,7 +73,7 @@ class CategoryActivity : AppCompatActivity() {
             val imgAndCategory = setCategoryName(listImage)
 
             val operation = Operation(user.balance, comment.text.toString(),
-                    value.text.toString(), isExpenses, imgAndCategory.second, date, imgAndCategory.first.id.toString())
+                    value.text.toString(), isExpenses, imgAndCategory.second, date, imgAndCategory.first)
             REF_DATABASE_ROOT.child("Operations").child(user.login).child(date).setValue(operation)
             if (isExpenses)
                 user.balance = (user.balance.toInt() + operation.Operation_operation.toInt()).toString()
@@ -101,7 +101,7 @@ class CategoryActivity : AppCompatActivity() {
 
     }
 
-    fun setCategoryName(listOfImageView: List<ImageView>): Pair<ImageView, String> {
+    fun setCategoryName(listOfImageView: List<ImageView>): Pair<String, String> {
         var map: HashMap<ImageView, String> = HashMap()
         map[listOfImageView[0]] = "Продукты"
         map[listOfImageView[1]] = "Машина"
@@ -119,8 +119,8 @@ class CategoryActivity : AppCompatActivity() {
 
         for (key in map.keys)
             if (key.isSelected)
-                return Pair(key, map[key]!!)
-        return Pair(listOfImageView[12], "Другое")
+                return Pair(drawableMap[map[key]].toString(), map[key]!!)
+        return Pair(drawableMap["Другое"].toString(), "Другое")
     }
 
 //    fun isItCheck(listImage: List<ImageView>){

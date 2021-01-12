@@ -100,7 +100,7 @@ fun getOperations(user:DataUser): ArrayList<HashMap<String, Any>> {
                         else
                             map["image"] = R.drawable.no_category
                         if (!OperationList.contains(map))
-                            OperationList.add(map)
+                            OperationList.add(0,map)
 
                     }
                 }

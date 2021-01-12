@@ -44,12 +44,12 @@ class MainActivity : AppCompatActivity() {
         val income = findViewById<TextView>(R.id.income_sum)
         val loss = findViewById<TextView>(R.id.expenses_sum)
         setOnClick(profile,addOperation)
+        getDrawableId()
         val prov = findViewById<TextView>(R.id.budget)
         val addd = LocalDataBaseHandler(this)
         val user = addd.getUser()
         prov.text = user.balance+ "\n" +"руб"
         getIncomeAndLosses(user, income, loss)
-        OperationList.reverse()
         val adapter = SimpleAdapter(
             this,
             OperationList,
@@ -58,8 +58,6 @@ class MainActivity : AppCompatActivity() {
             intArrayOf(R.id.date, R.id.category, R.id.operation_sum, R.id.comment, R.id.img)
         )
         listView.adapter = adapter
-
-
     }
 
     fun setOnClick(profile: View ,addOperation: View) {

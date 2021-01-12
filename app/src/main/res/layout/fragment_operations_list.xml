@@ -65,9 +65,7 @@
                     android:id="@+id/operation_sum"
                     style="@style/operation_text"
                     android:layout_margin="29dp"
-                    android:autoSizeTextType="uniform"
-                    android:autoSizeMinTextSize="12sp"
-                    android:autoSizeMaxTextSize="24sp" />
+                    android:textSize="18sp"/>
 
             </LinearLayout>
 
