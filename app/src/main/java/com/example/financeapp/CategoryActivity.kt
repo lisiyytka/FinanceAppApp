@@ -11,8 +11,8 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import java.time.LocalDateTime
 import java.time.LocalTime
-
-
+import java.util.ArrayList
+lateinit var img:ImageView
 class CategoryActivity : AppCompatActivity() {
 //    val Local_db_helper = LocalDataBaseHandler(this)
 //    val LocalUser: User? = Local_db_helper.getUser()
@@ -20,8 +20,6 @@ class CategoryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_category)
-        val carCategory = findViewById<ImageView>(R.id.car)
-        val comment = findViewById<EditText>(R.id.comment_text)
         initFirebase()
         val food = findViewById<ImageView>(R.id.food)
         val car = findViewById<ImageView>(R.id.car)
@@ -36,11 +34,14 @@ class CategoryActivity : AppCompatActivity() {
         val sport = findViewById<ImageView>(R.id.sport)
         val transport = findViewById<ImageView>(R.id.transport)
         val another = findViewById<ImageView>(R.id.no_category)
-        var listImage = listOf<ImageView>(food, car, clothes, education, hobby, house,
+        val listImage = listOf<ImageView>(food, car, clothes, education, hobby, house,
                 personalCare, medicine, pets, restaurant, sport, transport, another)
         for (i in listImage)
         {
-            i.setOnClickListener { i.isSelected = !i.isSelected }
+            i.setOnClickListener {
+                for (j in listImage)
+                    j.isSelected = false
+                i.isSelected = !i.isSelected }
         }
         setOnClick(listImage)
     }
@@ -69,9 +70,10 @@ class CategoryActivity : AppCompatActivity() {
             val user = localBd.getUser()
             var date = ""
             date = DateHelper.getDate()
-            var category = isItCheck(listImage)
+            val imgAndCategory = setCategoryName(listImage)
+            img = imgAndCategory.first
             val operation = Operation(user.balance, comment.text.toString(),
-                    value.text.toString(), isExpenses, category.toString(), date)
+                    value.text.toString(), isExpenses, imgAndCategory.second, date)
             REF_DATABASE_ROOT.child("Operations").child(user.login).child(date).setValue(operation)
             if (isExpenses)
                 user.balance = (user.balance.toInt() + operation.Operation_operation.toInt()).toString()
@@ -99,38 +101,34 @@ class CategoryActivity : AppCompatActivity() {
 
     }
 
-    fun setCategoryName(i: ImageView): String {
-        val food = "Продукты"
-        val car = "Машина"
-        val clothes = "Одежда"
-        val education = "Образование"
-        val hobby = "Хобби"
-        val house = "Дом"
-        val personalCare = "Персональный Уход"
-        val medicine = "Медицина"
-        val pets = "Животные"
-        val restaurant = "Ресторан"
-        val sport = "Спорт"
-        val transport = "Транспорт"
-        val another = "Другое"
-        var listNames = listOf(food, car, clothes, education, hobby, house,
-                personalCare, medicine, pets, restaurant, sport, transport, another)
-        var result = another
-        for (i in listNames) {
-            if (i == result)
-            else {
-                result = i
-            }
-        }
-        return result
+    fun setCategoryName(listOfImageView: List<ImageView>): Pair<ImageView, String> {
+        var map: HashMap<ImageView, String> = HashMap()
+        map[listOfImageView[0]] = "Продукты"
+        map[listOfImageView[1]] = "Машина"
+        map[listOfImageView[2]] = "Одежда"
+        map[listOfImageView[3]] = "Образование"
+        map[listOfImageView[4]] = "Хобби"
+        map[listOfImageView[5]] = "Дом"
+        map[listOfImageView[6]] = "Персональный Уход"
+        map[listOfImageView[7]] = "Медицина"
+        map[listOfImageView[8]] = "Животные"
+        map[listOfImageView[9]] = "Ресторан"
+        map[listOfImageView[10]] = "Спорт"
+        map[listOfImageView[11]] = "Транспорт"
+        map[listOfImageView[12]] = "Другое"
+
+        for (key in map.keys)
+            if (key.isSelected)
+                return Pair(key, map[key]!!)
+        return Pair(listOfImageView[12], "Другое")
     }
 
-    fun isItCheck(listImage: List<ImageView>){
-        for (i in listImage){
-            if(i.isSelected)
-            {
-                setCategoryName(i)
-            }
-        }
-    }
+//    fun isItCheck(listImage: List<ImageView>){
+//        for (i in listImage){
+//            if(i.isSelected)
+//            {
+//                setCategoryName(i)
+//            }
+//        }
+//    }
 }

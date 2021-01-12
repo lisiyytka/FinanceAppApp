@@ -54,8 +54,8 @@ class MainActivity : AppCompatActivity() {
             this,
             OperationList,
             R.layout.fragment_operations_list,
-            arrayOf("date", "category", "operation_sum", "comment"),
-            intArrayOf(R.id.date, R.id.category, R.id.operation_sum, R.id.comment)
+            arrayOf("date", "category", "operation_sum", "comment", "image"),
+            intArrayOf(R.id.date, R.id.category, R.id.operation_sum, R.id.comment, R.id.img)
         )
         listView.adapter = adapter
 

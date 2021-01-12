@@ -95,6 +95,7 @@ fun getOperations(user:DataUser): ArrayList<HashMap<String, String>> {
                         map["category"] = operation.Category
                         map["operation_sum"] = operation.Operation_operation
                         map["comment"] = operation.Comment_text
+                        map["image"] = img.toString()
                         if (!OperationList.contains(map))
                             OperationList.add(map)
 
