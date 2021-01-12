@@ -71,9 +71,9 @@ class CategoryActivity : AppCompatActivity() {
             var date = ""
             date = DateHelper.getDate()
             val imgAndCategory = setCategoryName(listImage)
-            img = imgAndCategory.first
+
             val operation = Operation(user.balance, comment.text.toString(),
-                    value.text.toString(), isExpenses, imgAndCategory.second, date)
+                    value.text.toString(), isExpenses, imgAndCategory.second, date, imgAndCategory.first.id.toString())
             REF_DATABASE_ROOT.child("Operations").child(user.login).child(date).setValue(operation)
             if (isExpenses)
                 user.balance = (user.balance.toInt() + operation.Operation_operation.toInt()).toString()

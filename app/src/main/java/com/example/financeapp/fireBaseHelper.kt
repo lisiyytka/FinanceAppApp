@@ -83,8 +83,8 @@ fun getIncomeAndLosses(user:DataUser, IncomeView:TextView, LossView:TextView){
         })
 }
 
-fun getOperations(user:DataUser): ArrayList<HashMap<String, String>> {
-    var map: HashMap<String, String>
+fun getOperations(user:DataUser): ArrayList<HashMap<String, Any>> {
+    var map: HashMap<String, Any>
     REF_DATABASE_ROOT.child(NODE_OPERATIONS).child(user.login).addListenerForSingleValueEvent(
             AppValueEventListener {
                 for (child in it.children) {
@@ -95,7 +95,10 @@ fun getOperations(user:DataUser): ArrayList<HashMap<String, String>> {
                         map["category"] = operation.Category
                         map["operation_sum"] = operation.Operation_operation
                         map["comment"] = operation.Comment_text
-                        map["image"] = img.toString()
+                        if (operation.IdImage != "")
+                            map["image"] = operation.IdImage.toInt()
+                        else
+                            map["image"] = R.drawable.no_category
                         if (!OperationList.contains(map))
                             OperationList.add(map)
 

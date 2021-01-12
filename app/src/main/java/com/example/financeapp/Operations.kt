@@ -6,5 +6,6 @@ data class Operation(
     var Operation_operation: String = "",
     var IsExpenses: Boolean = true,
     var Category: String = "",
-    var Date: String = ""
+    var Date: String = "",
+    var IdImage: String = ""
 )

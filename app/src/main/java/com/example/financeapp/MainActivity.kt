@@ -27,7 +27,7 @@ import kotlin.coroutines.CoroutineContext
 //import com.github.mikephil.charting.utils.ColorTemplate
 //import kotlinx.android.synthetic.main.fragment_diagram_circle.*
 
-var OperationList: java.util.ArrayList<HashMap<String, String>> = ArrayList()
+var OperationList: java.util.ArrayList<HashMap<String, Any>> = ArrayList()
 class MainActivity : AppCompatActivity() {
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
