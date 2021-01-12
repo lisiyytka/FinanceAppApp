@@ -27,7 +27,7 @@ import kotlin.coroutines.CoroutineContext
 //import com.github.mikephil.charting.utils.ColorTemplate
 //import kotlinx.android.synthetic.main.fragment_diagram_circle.*
 
-lateinit var user: DataUser
+var OperationList: java.util.ArrayList<HashMap<String, String>> = ArrayList()
 class MainActivity : AppCompatActivity() {
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         initFirebase()
         val profile = findViewById<CircleImageView>(R.id.profile)
         val listView: ListView = findViewById(R.id.operations_list)
@@ -43,72 +44,22 @@ class MainActivity : AppCompatActivity() {
         val income = findViewById<TextView>(R.id.income_sum)
         val loss = findViewById<TextView>(R.id.expenses_sum)
         setOnClick(profile,addOperation)
-        val arrayList: ArrayList<HashMap<String, String>> = ArrayList()
-        var map: HashMap<String, String>
-        //fgh
-        map = HashMap()
-        map["date"] = "07.06.2020"
-        map["category"] = "Food"
-        map["operation_sum"] = "-220"
-        map["comment"] = "-220"
-        arrayList.add(map)
-
-        map = HashMap()
-        map["date"] = "08.06.2020"
-        map["category"] = "Food"
-        map["operation_sum"] = "-220"
-        map["comment"] = "-220"
-        arrayList.add(map)
-        //allthesmallthings
-        map = HashMap()
-        map["date"] = "08.06.2020"
-        map["category"] = "Food"
-        map["operation_sum"] = "-220"
-        map["comment"] = "-220"
-        arrayList.add(map)
-
-        map = HashMap()
-        map["date"] = "08.06.2020"
-        map["category"] = "Food"
-        map["operation_sum"] = "-220"
-        map["comment"] = "-220"
-        arrayList.add(map)
-
-        map = HashMap()
-        map["date"] = "08.06.2020"
-        map["category"] = "Food"
-        map["operation_sum"] = "-220"
-        map["comment"] = "-220"
-        arrayList.add(map)
-
-        map = HashMap()
-        map["date"] = "08.06.2020"
-        map["category"] = "Food"
-        map["operation_sum"] = "-220"
-        map["comment"] = "-220"
-        arrayList.add(map)
-
-        map = HashMap()
-        map["date"] = "08.06.2020"
-        map["category"] = "Food"
-        map["operation_sum"] = "-220"
-        map["comment"] = "-220"
-        arrayList.add(map)
+        val prov = findViewById<TextView>(R.id.budget)
+        val addd = LocalDataBaseHandler(this)
+        val user = addd.getUser()
+        prov.text = user.balance
+        getIncomeAndLosses(user, income, loss)
+        OperationList.reverse()
         val adapter = SimpleAdapter(
             this,
-            arrayList,
+            OperationList,
             R.layout.fragment_operations_list,
             arrayOf("date", "category", "operation_sum", "comment"),
             intArrayOf(R.id.date, R.id.category, R.id.operation_sum, R.id.comment)
         )
         listView.adapter = adapter
 
-//        val log = "123"
-        val prov = findViewById<TextView>(R.id.budget)
-        val addd = LocalDataBaseHandler(this)
-        val user = addd.getUser()
-        prov.text = user.balance
-        getIncomeAndLosses(user, income, loss)
+
     }
 
     fun setOnClick(profile: View ,addOperation: View) {

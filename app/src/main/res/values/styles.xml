@@ -71,6 +71,7 @@
         <item name="android:layout_marginStart">5dp</item>
         <item name="android:layout_marginEnd">5dp</item>
         <item name="android:layout_weight">1</item>
+        <item name="android:foreground">@drawable/border_img_cat</item>
     </style>
 
     <style name="reg">

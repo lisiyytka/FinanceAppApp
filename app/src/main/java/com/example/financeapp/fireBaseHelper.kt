@@ -83,5 +83,26 @@ fun getIncomeAndLosses(user:DataUser, IncomeView:TextView, LossView:TextView){
         })
 }
 
+fun getOperations(user:DataUser): ArrayList<HashMap<String, String>> {
+    var map: HashMap<String, String>
+    REF_DATABASE_ROOT.child(NODE_OPERATIONS).child(user.login).addListenerForSingleValueEvent(
+            AppValueEventListener {
+                for (child in it.children) {
+                    val operation = child.getValue(Operation::class.java)
+                    if (operation != null) {
+                        map = HashMap()
+                        map["date"] = operation.Date
+                        map["category"] = operation.Category
+                        map["operation_sum"] = operation.Operation_operation
+                        map["comment"] = operation.Comment_text
+                        if (!OperationList.contains(map))
+                            OperationList.add(map)
+
+                    }
+                }
+            })
+    return OperationList
+}
+
 
 

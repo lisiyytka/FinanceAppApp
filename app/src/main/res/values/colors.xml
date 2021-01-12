@@ -12,5 +12,7 @@
     <color name="gradient_lightblue">#019DC0</color>
     <color name="gray">#EBEBEB</color>
     <color name="dark_gray">#ADACAC</color>
+    <color name="lightblue">#BDBDBD</color>
     <color name="txt_gray">#BDBDBD</color>
+
 </resources>

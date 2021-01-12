@@ -36,17 +36,21 @@ class EntranceActivity : AppCompatActivity() {
         if(login == "" || pswrd == "")
             {Toast.makeText(this,"Заполните все поля",Toast.LENGTH_LONG).show()}
         else{
-            if(checkedUser.login==login && checkedUser.password == pswrd)
+            if(checkedUser.login==login && checkedUser.password == pswrd) {
+                OperationList = getOperations(checkedUser)
                 startActivity(Intent(this, LoadScreen::class.java))
+            }
             else{
                     REF_DATABASE_ROOT.child(NODE_USERS).addListenerForSingleValueEvent(
                         AppValueEventListener {
                             if (it.hasChild(login)) {
                                 REF_DATABASE_ROOT.child(NODE_USERS).child(login).addListenerForSingleValueEvent(
                                     AppValueEventListener {
-                                        val pswd = it.getValue(DataUser::class.java)!!.password
-                                        if (pswd == pswrd)
-                                        { localDb.deleteData()
+                                        val pswd = it.getValue(DataUser::class.java)
+                                        if (pswd!!.password == pswrd)
+                                        {
+                                            OperationList = getOperations(pswd)
+                                            localDb.deleteData()
                                             fireBaseHelp(this,login)
                                             startActivity(Intent(this, LoadScreen::class.java))
                                         }else{Toast.makeText(this,"Данные неверны",Toast.LENGTH_SHORT).show()}

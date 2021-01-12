@@ -59,6 +59,7 @@ class CategoryActivity : AppCompatActivity() {
             REF_DATABASE_ROOT.child("Users").child(user.login).setValue(user)
             localBd.deleteData()
             localBd.insertUser(user)
+            OperationList = getOperations(user)
             startActivity(Intent(this, LoadScreen::class.java))
         }
     }
