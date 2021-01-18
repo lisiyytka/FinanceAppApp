@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity() {
         setUpPieChartData()
         setOnClick(profile,addOperation)
         getDrawableId()
+        getColorId()
         val prov = findViewById<TextView>(R.id.budget)
         val addd = LocalDataBaseHandler(this)
         val user = addd.getUser()
@@ -71,21 +72,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpPieChartData() {
-        val yVals = ArrayList<PieEntry>()
-        yVals.add(PieEntry(30f))
-        yVals.add(PieEntry(2f))
-        yVals.add(PieEntry(4f))
-        yVals.add(PieEntry(22f))
-        yVals.add(PieEntry(12.5f))
+        val valuesAndColors = getCategoryValuesAndColors()
+        val yVals = valuesAndColors.first
 
         val dataSet = PieDataSet(yVals, "")
         dataSet.valueTextSize=0f
-        val colors = java.util.ArrayList<Int>()
-        colors.add(Color.GRAY)
-        colors.add(Color.BLUE)
-        colors.add(Color.RED)
-        colors.add(Color.GREEN)
-        colors.add(Color.MAGENTA)
+        val colors = valuesAndColors.second
 
         val pieChart = findViewById<PieChart>(R.id.chart1)
         pieChart.isDrawHoleEnabled = true
@@ -99,6 +91,25 @@ class MainActivity : AppCompatActivity() {
         pieChart.isDrawHoleEnabled = false
         pieChart.legend.isEnabled = false
         pieChart.description.isEnabled = false
+    }
+
+    private fun getCategoryValuesAndColors():Pair<ArrayList<PieEntry>, ArrayList<Int>> {
+        val yVals = ArrayList<PieEntry>()
+        val colors = ArrayList<Int>()
+        val operationList: HashMap<String, Int> = HashMap()
+        for (operation in OperationList){
+            if (operationList.keys.contains(operation["category"]))
+                operationList[operation["category"].toString()] = operationList[operation["category"].toString()]!!.plus(
+                    operation["operation_sum"].toString().toInt()
+                )
+            else
+                operationList[operation["category"].toString()] = operation["operation_sum"].toString().toInt()
+        }
+        for (operation in operationList) {
+            yVals.add(PieEntry(operation.value.toFloat()))
+            colors.add(colorMap[operation.key]!!)
+        }
+        return Pair(yVals, colors)
     }
 
 }

@@ -14,5 +14,17 @@
     <color name="dark_gray">#ADACAC</color>
     <color name="lightblue">#029DBF</color>
     <color name="txt_gray">#BDBDBD</color>
-
+    <color name="color_food_category">#7ECA99</color>
+    <color name="color_car_category">#88A3D6</color>
+    <color name="color_education_category">#C8DD99</color>
+    <color name="color_pets_category">#E2939A</color>
+    <color name="color_no_category">#7B7B7B</color>
+    <color name="color_house_category">#93CAC4</color>
+    <color name="color_clothes_category">#EFBF88</color>
+    <color name="color_hobby_category">#8582BC</color>
+    <color name="color_medicine_category">#E2907A</color>
+    <color name="color_restaurant_category">#E7A580</color>
+    <color name="color_sport_category">#E296BF</color>
+    <color name="color_transport_category">#8ECDF6</color>
+    <color name="color_personal_care_category">#ADD19A</color>
 </resources>
