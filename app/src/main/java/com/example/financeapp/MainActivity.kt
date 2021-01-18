@@ -3,6 +3,7 @@ package com.example.financeapp
 import android.annotation.SuppressLint
 import android.app.ActivityOptions
 import android.content.Intent
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -12,6 +13,7 @@ import android.widget.SimpleAdapter
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.github.mikephil.charting.charts.PieChart
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
 import com.google.firebase.database.DataSnapshot
@@ -19,13 +21,9 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlin.coroutines.CoroutineContext
-
-
-//import com.github.mikephil.charting.charts.PieChart
-//import com.github.mikephil.charting.data.PieData
-//import com.github.mikephil.charting.data.PieDataSet
-//import com.github.mikephil.charting.utils.ColorTemplate
-//import kotlinx.android.synthetic.main.fragment_diagram_circle.*
+import com.github.mikephil.charting.components.XAxis
+import com.github.mikephil.charting.data.*
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
 
 var OperationList: java.util.ArrayList<HashMap<String, Any>> = ArrayList()
 class MainActivity : AppCompatActivity() {
@@ -43,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         val addOperation = findViewById<CircleImageView>(R.id.add_btn)
         val income = findViewById<TextView>(R.id.income_sum)
         val loss = findViewById<TextView>(R.id.expenses_sum)
+        setUpPieChartData()
         setOnClick(profile,addOperation)
         getDrawableId()
         val prov = findViewById<TextView>(R.id.budget)
@@ -58,6 +57,7 @@ class MainActivity : AppCompatActivity() {
             intArrayOf(R.id.date, R.id.category, R.id.operation_sum, R.id.comment, R.id.img)
         )
         listView.adapter = adapter
+
     }
     ///sssss
     fun setOnClick(profile: View ,addOperation: View) {
@@ -68,6 +68,37 @@ class MainActivity : AppCompatActivity() {
         addOperation.setOnClickListener {
             startActivity(Intent(this, CategoryActivity::class.java))
         }
+    }
+
+    private fun setUpPieChartData() {
+        val yVals = ArrayList<PieEntry>()
+        yVals.add(PieEntry(30f))
+        yVals.add(PieEntry(2f))
+        yVals.add(PieEntry(4f))
+        yVals.add(PieEntry(22f))
+        yVals.add(PieEntry(12.5f))
+
+        val dataSet = PieDataSet(yVals, "")
+        dataSet.valueTextSize=0f
+        val colors = java.util.ArrayList<Int>()
+        colors.add(Color.GRAY)
+        colors.add(Color.BLUE)
+        colors.add(Color.RED)
+        colors.add(Color.GREEN)
+        colors.add(Color.MAGENTA)
+
+        val pieChart = findViewById<PieChart>(R.id.chart1)
+        pieChart.isDrawHoleEnabled = true
+        pieChart.setHoleColor(R.color.black)
+        pieChart.holeRadius = 7f
+        dataSet.setColors(colors)
+
+        val data = PieData(dataSet)
+        pieChart.data = data
+        pieChart.centerTextRadiusPercent = 0f
+        pieChart.isDrawHoleEnabled = false
+        pieChart.legend.isEnabled = false
+        pieChart.description.isEnabled = false
     }
 
 }

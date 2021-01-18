@@ -63,6 +63,10 @@
             android:id="@+id/diagram_part"
             style="@style/linear_layout_height_zero_h"
             android:layout_weight="4">
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/chart1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
 
         </LinearLayout>
 
