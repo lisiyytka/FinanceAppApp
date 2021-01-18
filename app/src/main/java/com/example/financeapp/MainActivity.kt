@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
         )
         listView.adapter = adapter
     }
-
+    ///sssss
     fun setOnClick(profile: View ,addOperation: View) {
         profile.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
