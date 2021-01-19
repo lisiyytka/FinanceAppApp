@@ -41,10 +41,10 @@ class MainActivity : AppCompatActivity() {
         val addOperation = findViewById<CircleImageView>(R.id.add_btn)
         val income = findViewById<TextView>(R.id.income_sum)
         val loss = findViewById<TextView>(R.id.expenses_sum)
-        setUpPieChartData()
-        setOnClick(profile,addOperation)
         getDrawableId()
         getColorId()
+        setUpPieChartData()
+        setOnClick(profile,addOperation)
         val prov = findViewById<TextView>(R.id.budget)
         val addd = LocalDataBaseHandler(this)
         val user = addd.getUser()
@@ -78,17 +78,18 @@ class MainActivity : AppCompatActivity() {
         val dataSet = PieDataSet(yVals, "")
         dataSet.valueTextSize=0f
         val colors = valuesAndColors.second
+        colors.clear()
+        colors.add(Color.RED)
+        colors.add(Color.GREEN)
+        colors.add(Color.MAGENTA)
 
         val pieChart = findViewById<PieChart>(R.id.chart1)
-        pieChart.isDrawHoleEnabled = true
-        pieChart.setHoleColor(R.color.black)
-        pieChart.holeRadius = 7f
         dataSet.setColors(colors)
 
         val data = PieData(dataSet)
         pieChart.data = data
         pieChart.centerTextRadiusPercent = 0f
-        pieChart.isDrawHoleEnabled = false
+        pieChart.isDrawHoleEnabled = true
         pieChart.legend.isEnabled = false
         pieChart.description.isEnabled = false
     }
@@ -107,7 +108,8 @@ class MainActivity : AppCompatActivity() {
         }
         for (operation in operationList) {
             yVals.add(PieEntry(operation.value.toFloat()))
-            colors.add(colorMap[operation.key]!!)
+//            colors.add(colorMap[operation.key]!!)
+            colors.add(colorMap.values.random())
         }
         return Pair(yVals, colors)
     }
