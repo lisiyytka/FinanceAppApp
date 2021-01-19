@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.ListView
 import android.widget.SimpleAdapter
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.github.mikephil.charting.charts.PieChart
@@ -71,6 +72,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     private fun setUpPieChartData() {
         val valuesAndColors = getCategoryValuesAndColors()
         val yVals = valuesAndColors.first
@@ -78,10 +80,12 @@ class MainActivity : AppCompatActivity() {
         val dataSet = PieDataSet(yVals, "")
         dataSet.valueTextSize=0f
         val colors = valuesAndColors.second
-        colors.clear()
-        colors.add(Color.RED)
-        colors.add(Color.GREEN)
-        colors.add(Color.MAGENTA)
+//        colors.clear()
+//        colors.add(Color.RED)
+//        colors.add(Color.GREEN)
+//        colors.add(Color.MAGENTA)
+//        colors.add(getColor(R.color.color_clothes_category))
+//        colors.add(getColor(R.color.color_car_category))
 
         val pieChart = findViewById<PieChart>(R.id.chart1)
         dataSet.setColors(colors)
@@ -94,6 +98,7 @@ class MainActivity : AppCompatActivity() {
         pieChart.description.isEnabled = false
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     private fun getCategoryValuesAndColors():Pair<ArrayList<PieEntry>, ArrayList<Int>> {
         val yVals = ArrayList<PieEntry>()
         val colors = ArrayList<Int>()
@@ -108,8 +113,8 @@ class MainActivity : AppCompatActivity() {
         }
         for (operation in operationList) {
             yVals.add(PieEntry(operation.value.toFloat()))
-//            colors.add(colorMap[operation.key]!!)
-            colors.add(colorMap.values.random())
+            colors.add(getColor(colorMap[operation.key]!!))
+//            colors.add(colorMap.values.random())
         }
         return Pair(yVals, colors)
     }
