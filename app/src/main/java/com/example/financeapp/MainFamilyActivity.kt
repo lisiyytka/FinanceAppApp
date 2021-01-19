@@ -79,7 +79,7 @@ class MainFamilyActivity : AppCompatActivity() {
         }
 
         addOperation.setOnClickListener {
-            startActivity(Intent(this, CategoryActivity::class.java).putExtra("account", 1))
+            startActivity(Intent(this, CategoryActivity::class.java))
         }
     }
 }

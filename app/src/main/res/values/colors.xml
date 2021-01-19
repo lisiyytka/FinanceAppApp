@@ -27,4 +27,6 @@
     <color name="color_sport_category">#E296BF</color>
     <color name="color_transport_category">#8ECDF6</color>
     <color name="color_personal_care_category">#ADD19A</color>
+    <color name="expenses_red">#EB8973</color>
+    <color name="income_green">#A2C769</color>
 </resources>

@@ -77,24 +77,20 @@ class MainActivity : AppCompatActivity() {
     private fun setUpPieChartData() {
         val valuesAndColors = getCategoryValuesAndColors()
         val yVals = valuesAndColors.first
-
         val dataSet = PieDataSet(yVals, "")
-        dataSet.valueTextSize=0f
+        dataSet.valueTextSize=10f
+        dataSet.valueTextColor=Color.WHITE
         val colors = valuesAndColors.second
-//        colors.clear()
-//        colors.add(Color.RED)
-//        colors.add(Color.GREEN)
-//        colors.add(Color.MAGENTA)
-//        colors.add(getColor(R.color.color_clothes_category))
-//        colors.add(getColor(R.color.color_car_category))
 
         val pieChart = findViewById<PieChart>(R.id.chart1)
-        dataSet.setColors(colors)
+        dataSet.colors = colors
 
         val data = PieData(dataSet)
         pieChart.data = data
         pieChart.centerTextRadiusPercent = 0f
         pieChart.isDrawHoleEnabled = true
+        pieChart.holeRadius=30f
+        pieChart.transparentCircleRadius=40f
         pieChart.legend.isEnabled = false
         pieChart.description.isEnabled = false
     }

@@ -76,66 +76,20 @@
             android:layout_weight="3"
             android:baselineAligned="false">
 
-            <LinearLayout
-                android:id="@+id/settings_part"
-                style="@style/linear_layout_height_zero_h"
-                android:layout_weight="1"
-                tools:ignore="NestedWeights">
+            <Button
+                android:id="@+id/settings_btn"
+                style="@style/prfBtn"
+                android:text="Настройки"/>
 
-                <Button
-                    android:id="@+id/settings_btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="38dp"
-                    android:layout_gravity="center"
-                    android:textAllCaps="false"
-                    android:background="@drawable/btn_background"
-                    style="@style/font_roboto_regular_white"
-                    android:textColor="@color/gradient_blue"
-                    android:textSize="18sp"
-                    android:text="Настройки"/>
+            <Button
+                android:id="@+id/change_btn"
+                style="@style/prfBtn"
+                android:text="Сменить аккаунт"/>
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/account_part"
-                style="@style/linear_layout_height_zero_h"
-                android:layout_weight="1">
-
-                <Button
-                    android:id="@+id/account_btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="38dp"
-                    android:layout_gravity="center"
-                    android:textAllCaps="false"
-                    android:background="@drawable/btn_background"
-                    style="@style/font_roboto_regular_white"
-                    android:textColor="@color/gradient_blue"
-                    android:textSize="18sp"
-                    android:text="Аккаунт"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/familyAccount_part"
-                style="@style/linear_layout_height_zero_h"
-                android:layout_weight="1">
-
-                <Button
-                    android:id="@+id/familyAccount_btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="38dp"
-                    android:layout_gravity="center"
-                    android:textAllCaps="false"
-                    android:background="@drawable/btn_background"
-                    style="@style/font_roboto_regular_white"
-                    android:textColor="@color/gradient_blue"
-                    android:textSize="18sp"
-                    android:text="Семейный аккаунт"/>
-
-            </LinearLayout>
+            <Button
+                android:id="@+id/exit_btn"
+                style="@style/prfBtn"
+                android:text="Выход"/>
 
         </LinearLayout>
 

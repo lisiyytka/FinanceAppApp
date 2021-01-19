@@ -15,20 +15,5 @@ class ProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
-
-        val familyAcc = findViewById<Button>(R.id.familyAccount_btn)
-        val myAcc = findViewById<Button>(R.id.account_btn)
-
-        setOnClick(familyAcc, myAcc)
-    }
-
-    fun setOnClick(familyAcc: View, myAcc: View) {
-        familyAcc.setOnClickListener {
-            startActivity(Intent(this, LoginToFamilyAccActivity::class.java))
-        }
-
-        myAcc.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
-        }
     }
 }

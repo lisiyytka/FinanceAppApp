@@ -88,4 +88,57 @@
         <item name="android:textSize">20sp</item>
     </style>
 
+    <style name="codeBtn">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/dark_blue</item>
+        <item name="android:textSize">50sp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:alpha">0.8</item>
+    </style>
+
+    <style name="codeBtnIc">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="prfBtn">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginStart">38dp</item>
+        <item name="android:layout_marginEnd">38dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:background">@drawable/btn_background</item>
+        <item name="android:textColor">@color/gradient_blue</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:letterSpacing">-0.01</item>
+    </style>
+
+    <style name="incomeStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:letterSpacing">-0.01</item>
+        <item name="android:textColor">@color/income_green</item>
+    </style>
+
+    <style name="expensesStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:letterSpacing">-0.01</item>
+        <item name="android:textColor">@color/expenses_red</item>
+    </style>
+
 </resources>

@@ -14,9 +14,8 @@
         android:id="@+id/operations_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="50dp"
         android:nestedScrollingEnabled="true"
-        app:layout_constraintBottom_toTopOf="@+id/add_btn"
+        android:paddingBottom="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
