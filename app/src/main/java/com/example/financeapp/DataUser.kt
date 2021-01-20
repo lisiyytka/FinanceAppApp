@@ -9,5 +9,5 @@ data class DataUser(
     var password: String = "",
     var phone: String = "",
     var balance: String = "",
-    var pin: String = "")
-
+    var pin: String = "",
+    var accessCodeToFamily: String = "")

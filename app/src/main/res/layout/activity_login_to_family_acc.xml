@@ -40,20 +40,12 @@
                 android:layout_weight="3">
 
                 <TextView
-                    android:id="@+id/code_txt"
                     style="@style/font_roboto_light_blue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="QWERTY"
-                    android:textSize="50sp"/>
-                <TextView
-                    style="@style/font_roboto_light_blue"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Код для создания семейного аккаунта"
-                    android:textSize="20sp"/>
+                    android:text="Введите код для доступа к семейному аккаунту"
+                    android:textSize="25sp"/>
 
                 <EditText
                     android:id="@+id/code"
@@ -80,6 +72,14 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
                     />
+
+                <ImageView
+                    android:id="@+id/create_family_acc_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/next_btn" />
             </LinearLayout>
 
         </LinearLayout>

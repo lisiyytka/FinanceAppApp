@@ -19,6 +19,7 @@ lateinit var REF_DATABASE_ROOT:DatabaseReference
 
 const val NODE_USERS = "Users"
 const val NODE_OPERATIONS = "Operations"
+const val NODE_FAMILY = "Family"
 
 
 
@@ -56,6 +57,7 @@ fun fireBaseHelp( context: Context, log: String){
             user.pin = list[0]!!.pin
             user.surname = list[0]!!.surname
             user.password = list[0]!!.password
+            user.accessCodeToFamily = list[0]!!.accessCodeToFamily
             addd.insertUser(user)
         }
     })

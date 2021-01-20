@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
         val prov = findViewById<TextView>(R.id.budget)
         val addd = LocalDataBaseHandler(this)
         val user = addd.getUser()
-        prov.text = user.balance+ "\n" +"руб"
+        prov.text = user.balance+ " " + "руб"
         getIncomeAndLosses(user, income, loss)
         val adapter = SimpleAdapter(
             this,
@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
     ///sssss
     fun setOnClick(profile: View ,addOperation: View) {
         profile.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, ProfileActivity::class.java))
         }
 
         addOperation.setOnClickListener {
@@ -89,6 +89,7 @@ class MainActivity : AppCompatActivity() {
         pieChart.data = data
         pieChart.centerTextRadiusPercent = 0f
         pieChart.isDrawHoleEnabled = true
+        pieChart.setHoleColor(getColor(R.color.gradient_blue))
         pieChart.holeRadius=30f
         pieChart.transparentCircleRadius=40f
         pieChart.legend.isEnabled = false
@@ -109,9 +110,8 @@ class MainActivity : AppCompatActivity() {
                 operationList[operation["category"].toString()] = operation["operation_sum"].toString().toInt()
         }
         for (operation in operationList) {
-            yVals.add(PieEntry(operation.value.toFloat()))
+            yVals.add(PieEntry(operation.value.toFloat(),operation.key))
             colors.add(getColor(colorMap[operation.key]!!))
-//            colors.add(colorMap.values.random())
         }
         return Pair(yVals, colors)
     }

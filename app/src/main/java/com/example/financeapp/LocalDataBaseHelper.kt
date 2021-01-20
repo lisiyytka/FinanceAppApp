@@ -15,6 +15,7 @@ val COL_NAME = "Name"
 val COL_SURNAME= "Surname"
 val COL_PHONE= "Phone"
 val COL_BALANCE= "Balance"
+val COL_ACCESS= "Access"
 
 class LocalDataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,null,1) {
 
@@ -28,7 +29,8 @@ class LocalDataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DAT
                 COL_NAME + " VARCHAR(256), " +
                 COL_PHONE + " VARCHAR(256), " +
                 COL_BALANCE + " VARCHAR(256), " +
-                COL_SURNAME + " VARCHAR(256))";
+                COL_SURNAME + " VARCHAR(256), " +
+                COL_ACCESS + " VARCHAR(256))";
         db?.execSQL(createTable)
     }
 
@@ -41,11 +43,12 @@ class LocalDataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DAT
         val cv = ContentValues()
         cv.put(COL_LOGIN, user.login)
         cv.put(COL_PASSWORD, user.password)
-        cv.put(COL_PIN, "user.PIN")
-        cv.put(COL_NAME, "user.Name")
-        cv.put(COL_PHONE, "user.Phone")
+        cv.put(COL_PIN, user.pin)
+        cv.put(COL_NAME, user.name)
+        cv.put(COL_PHONE, user.phone)
         cv.put(COL_BALANCE, user.balance)
-        cv.put(COL_SURNAME, "user.Surname")
+        cv.put(COL_SURNAME, user.surname)
+        cv.put(COL_ACCESS, user.accessCodeToFamily)
         db.insert(TABLE_NAME, null, cv)
 //        if (result == -1.toLong())
 //            Toast.makeText(context, "Failed!", Toast.LENGTH_SHORT).show()
@@ -82,6 +85,7 @@ class LocalDataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DAT
             user.pin = result.getString(result.getColumnIndex(COL_PIN)).toString()
             user.password = result.getString(result.getColumnIndex(COL_PASSWORD)).toString()
             user.login = result.getString(result.getColumnIndex(COL_LOGIN)).toString()
+            user.accessCodeToFamily = result.getString(result.getColumnIndex(COL_ACCESS)).toString()
             } while (result.moveToNext())
         }
         result.close()

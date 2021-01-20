@@ -20,12 +20,13 @@
             android:baselineAligned="false">
 
             <TextView
+                android:id="@+id/nameSurname"
+                style="@style/font_roboto_medium_white"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                style="@style/font_roboto_medium_white"
-                android:textSize="44sp"
-                android:text="Имя Фамилия"/>
+                android:text="Имя Фамилия"
+                android:textSize="44sp" />
 
         </LinearLayout>
 
@@ -73,13 +74,18 @@
         <LinearLayout
             android:id="@+id/btn_part"
             style="@style/linear_layout_height_zero_v"
-            android:layout_weight="3"
+            android:layout_weight="4"
             android:baselineAligned="false">
 
             <Button
                 android:id="@+id/settings_btn"
                 style="@style/prfBtn"
                 android:text="Настройки"/>
+
+            <Button
+                android:id="@+id/family_btn"
+                style="@style/prfBtn"
+                android:text="Семейнный аккаунт"/>
 
             <Button
                 android:id="@+id/change_btn"
