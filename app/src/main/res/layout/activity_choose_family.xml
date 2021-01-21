@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChooseActivityFamily">
+
+    <LinearLayout
+        android:id="@+id/main_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/entrance_txt_part"
+            style="@style/linear_layout_height_zero_h"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/entrance_txt"
+                style="@style/font_roboto_light_blue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Семейный аккаунт"
+                android:textSize="36sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/edit_part"
+            style="@style/linear_layout_height_zero_v"
+            android:layout_weight="2">
+
+            <Button
+                android:id="@+id/newAcc_btn"
+                style="@style/famBtn"
+                android:text="Создать семейный аккаунт"/>
+
+            <Button
+                android:id="@+id/acc_btn"
+                style="@style/famBtn"
+                android:text="Войти в семейный аккаунт"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
