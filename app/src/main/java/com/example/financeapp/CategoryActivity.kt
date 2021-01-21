@@ -71,34 +71,36 @@ class CategoryActivity : AppCompatActivity() {
             var date = ""
             date = DateHelper.getDate()
             val imgAndCategory = setCategoryName(listImage)
-
-            val operation = Operation(user.balance, comment.text.toString(),
-                    value.text.toString(), isExpenses, imgAndCategory.second, date, imgAndCategory.first)
-            REF_DATABASE_ROOT.child("Operations").child(user.login).child(date).setValue(operation)
-            if (isExpenses)
-                user.balance = (user.balance.toInt() + operation.Operation_operation.toInt()).toString()
-            else
-                user.balance = (user.balance.toInt() - operation.Operation_operation.toInt()).toString()
-            REF_DATABASE_ROOT.child("Users").child(user.login).setValue(user)
-            localBd.deleteData()
-            localBd.insertUser(user)
-            OperationList = getOperations(user)
-            startActivity(Intent(this, LoadScreen::class.java))
-        }
-    }
-
-    fun setCategoryPicture(listImage: List<ImageView>): ImageView {
-
-        var result = listImage[12]
-        for (i in listImage) {
-            if (i == listImage[12])
-            else {
-                result = i
+            if(value.text.toString() == "")
+            {
+                makeToast(this,"Заполните сумму")
             }
+                else {
+                    if (isFromMainFamily)
+                    {
+                        val familyOperation = FamilyOperation(user.balance, comment.text.toString(),
+                                value.text.toString(), isExpenses, imgAndCategory.second, date, imgAndCategory.first, user.login, user.name + " " + user.surname)
+                        REF_DATABASE_ROOT.child("FamilyOperations").child(user.accessCodeToFamily).child(date).setValue(familyOperation)
+                        isFromLogActivity = true
+                        OperationListFamily = getOperationsFamily(user)
+                    }
+                    else{
+                        val operation = Operation(user.balance, comment.text.toString(),
+                                value.text.toString(), isExpenses, imgAndCategory.second, date, imgAndCategory.first)
+                        REF_DATABASE_ROOT.child("Operations").child(user.login).child(date).setValue(operation)
+                        if (isExpenses)
+                            user.balance = (user.balance.toInt() + operation.Operation_operation.toInt()).toString()
+                        else
+                            user.balance = (user.balance.toInt() - operation.Operation_operation.toInt()).toString()
+                        REF_DATABASE_ROOT.child("Users").child(user.login).setValue(user)
+                        localBd.deleteData()
+                        localBd.insertUser(user)
+                        OperationList = getOperations(user)
+                    }
+                startActivity(Intent(this, LoadScreen::class.java))
+            }
+
         }
-        return result
-
-
     }
 
     fun setCategoryName(listOfImageView: List<ImageView>): Pair<String, String> {
@@ -122,13 +124,4 @@ class CategoryActivity : AppCompatActivity() {
                 return Pair(drawableMap[map[key]].toString(), map[key]!!)
         return Pair(drawableMap["Другое"].toString(), "Другое")
     }
-
-//    fun isItCheck(listImage: List<ImageView>){
-//        for (i in listImage){
-//            if(i.isSelected)
-//            {
-//                setCategoryName(i)
-//            }
-//        }
-//    }
 }

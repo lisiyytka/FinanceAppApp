@@ -110,5 +110,32 @@ fun getOperations(user:DataUser): ArrayList<HashMap<String, Any>> {
     return OperationList
 }
 
+fun getOperationsFamily(user:DataUser): ArrayList<HashMap<String, Any>> {
+    var map: HashMap<String, Any>
+    REF_DATABASE_ROOT.child("FamilyOperations").child(user.accessCodeToFamily).addListenerForSingleValueEvent(
+            AppValueEventListener {
+                for (child in it.children) {
+                    val operation = child.getValue(FamilyOperation::class.java)
+                    if (operation != null){
+                        map = HashMap()
+                        map["date"] = operation.Date
+                        map["category"] = operation.Category
+                        map["operation_sum"] = operation.Operation_operation
+                        map["comment"] = operation.Comment_text
+                        map["nameSurname"] = operation.nameSurname
+                        map["login"] = operation.login
+                        if (operation.IdImage != "")
+                            map["image"] = operation.IdImage.toInt()
+                        else
+                            map["image"] = R.drawable.no_category
+                        if (!OperationListFamily.contains(map))
+                            OperationListFamily.add(0,map)
+
+                    }
+                }
+            })
+    return OperationListFamily
+}
+
 
 

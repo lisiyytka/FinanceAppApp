@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
-
+var isFromLogActivity: Boolean = false
 class LoginToFamilyAccActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +42,9 @@ class LoginToFamilyAccActivity : AppCompatActivity() {
                                     .setValue(user.accessCodeToFamily)
                             db.deleteData()
                             db.insertUser(user)
-                            startActivity(Intent(this,MainFamilyActivity::class.java))
+                            getOperationsFamily(user)
+                            isFromLogActivity = true
+                            startActivity(Intent(this,LoadScreen::class.java))
                         }
                         else
                             makeToast(this, "Такой семьи нет")

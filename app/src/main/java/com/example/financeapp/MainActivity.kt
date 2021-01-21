@@ -43,6 +43,7 @@ class MainActivity : AppCompatActivity() {
         val addOperation = findViewById<CircleImageView>(R.id.add_btn)
         val income = findViewById<TextView>(R.id.income_sum)
         val loss = findViewById<TextView>(R.id.expenses_sum)
+        isFromMainFamily = false
         getDrawableId()
         getColorId()
         setUpPieChartData()

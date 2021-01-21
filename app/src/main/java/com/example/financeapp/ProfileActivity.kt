@@ -25,7 +25,13 @@ class ProfileActivity : AppCompatActivity() {
         fieldLogin.text = user.login
         val familyBtn = findViewById<Button>(R.id.family_btn)
         familyBtn.setOnClickListener {
-            startActivity(Intent(this, LoginToFamilyAccActivity::class.java))
+            if (user.accessCodeToFamily != "") {
+                isFromLogActivity = true
+                getOperationsFamily(user)
+                startActivity(Intent(this, LoadScreen::class.java))
+            }
+            else
+                startActivity(Intent(this, LoginToFamilyAccActivity::class.java))
         }
     }
 }

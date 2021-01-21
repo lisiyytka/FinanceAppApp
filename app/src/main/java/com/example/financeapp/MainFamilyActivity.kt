@@ -20,8 +20,10 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCa
 import de.hdodenhof.circleimageview.CircleImageView
 import com.github.mikephil.charting.data.*
 
-//class findView(val profile: View,val listView: ListView, addOperation: View)
+var OperationListFamily: java.util.ArrayList<HashMap<String, Any>> = ArrayList()
+var isFromMainFamily: Boolean = false
 class MainFamilyActivity : AppCompatActivity() {
+
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
     @RequiresApi(Build.VERSION_CODES.M)
@@ -37,6 +39,7 @@ class MainFamilyActivity : AppCompatActivity() {
         val addOperation = findViewById<CircleImageView>(R.id.add_btn)
         val income = findViewById<TextView>(R.id.income_sum)
         val loss = findViewById<TextView>(R.id.expenses_sum)
+        isFromMainFamily = true
         getDrawableId()
         getColorId()
         setUpPieChartData1()
@@ -48,9 +51,9 @@ class MainFamilyActivity : AppCompatActivity() {
         getIncomeAndLosses(user, income, loss)
         val adapter = SimpleAdapter(
                 this,
-                OperationList,
-                R.layout.fragment_operations_list,
-                arrayOf("date", "category", "operation_sum", "comment", "image"),
+                OperationListFamily,
+                R.layout.fragment_operations_list_family,
+                arrayOf("date", "category", "operation_sum", "nameSurname", "image"),
                 intArrayOf(R.id.date, R.id.category, R.id.operation_sum, R.id.comment, R.id.img)
         )
         listView.adapter = adapter
@@ -95,7 +98,7 @@ class MainFamilyActivity : AppCompatActivity() {
         val yVals = ArrayList<PieEntry>()
         val colors = ArrayList<Int>()
         val operationList: HashMap<String, Int> = HashMap()
-        for (operation in OperationList){
+        for (operation in OperationListFamily){
             if (operationList.keys.contains(operation["category"]))
                 operationList[operation["category"].toString()] = operationList[operation["category"].toString()]!!.plus(
                         operation["operation_sum"].toString().toInt()
@@ -110,7 +113,4 @@ class MainFamilyActivity : AppCompatActivity() {
         return Pair(yVals, colors)
     }
 
-    fun getFamilyIncomeOrLose(){
-
-    }
 }

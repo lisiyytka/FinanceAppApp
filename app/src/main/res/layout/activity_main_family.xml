@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainFamilyActivity"
-    android:background="@drawable/main_background">
+    android:background="@drawable/main_family_background">
 
     <LinearLayout
         android:id="@+id/main_screen"

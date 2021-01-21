@@ -73,7 +73,7 @@ class RegistrationActivity : AppCompatActivity() {
                 password.text.toString(),
                 phone.text.toString(),
                 reg_balance.text.toString(),
-                PIN.text.toString(), "asd")
+                PIN.text.toString(), "")
         val local_db = LocalDataBaseHandler(this)
         local_db.deleteData()
         local_db.insertUser(newUser)
