@@ -137,5 +137,23 @@ fun getOperationsFamily(user:DataUser): ArrayList<HashMap<String, Any>> {
     return OperationListFamily
 }
 
+fun getIncomeAndLossesFamily(user:DataUser, IncomeView:TextView, LossView:TextView){
+    var income = IncomeView.text.toString().toInt()
+    var loss = LossView.text.toString().toInt()
+    REF_DATABASE_ROOT.child("FamilyOperations").child(user.accessCodeToFamily).addListenerForSingleValueEvent(
+            AppValueEventListener {
+                for (child in it.children) {
+                    val operation = child.getValue(Operation::class.java)
+                    if (operation != null)
+                        if (operation.IsExpenses)
+                            income += operation.Operation_operation.toInt()
+                        else
+                            loss += operation.Operation_operation.toInt()
+                }
+                IncomeView.text = "+$income"
+                LossView.text = "-$loss"
+            })
+}
+
 
 

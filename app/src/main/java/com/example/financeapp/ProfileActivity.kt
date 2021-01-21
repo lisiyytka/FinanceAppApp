@@ -31,7 +31,7 @@ class ProfileActivity : AppCompatActivity() {
                 startActivity(Intent(this, LoadScreen::class.java))
             }
             else
-                startActivity(Intent(this, LoginToFamilyAccActivity::class.java))
+                startActivity(Intent(this, ChooseActivityFamily::class.java))
         }
     }
 }

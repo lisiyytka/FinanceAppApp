@@ -37,8 +37,8 @@ class MainFamilyActivity : AppCompatActivity() {
         val profile = findViewById<CircleImageView>(R.id.profile)
         val listView: ListView = findViewById(R.id.operations_list)
         val addOperation = findViewById<CircleImageView>(R.id.add_btn)
-        val income = findViewById<TextView>(R.id.income_sum)
-        val loss = findViewById<TextView>(R.id.expenses_sum)
+        val income = findViewById<TextView>(R.id.income_sum1)
+        val loss = findViewById<TextView>(R.id.expenses_sum1)
         isFromMainFamily = true
         getDrawableId()
         getColorId()
@@ -48,7 +48,7 @@ class MainFamilyActivity : AppCompatActivity() {
         val addd = LocalDataBaseHandler(this)
         val user = addd.getUser()
         prov.text = user.balance+ " " + "руб"
-        getIncomeAndLosses(user, income, loss)
+        getIncomeAndLossesFamily(user, income, loss)
         val adapter = SimpleAdapter(
                 this,
                 OperationListFamily,

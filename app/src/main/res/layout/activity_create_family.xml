@@ -64,6 +64,23 @@
                     android:textCursorDrawable="@color/dark_blue"
                     android:textSize="24sp" />
 
+                <EditText
+                    android:id="@+id/code1"
+                    style="@style/font_roboto_regular_blue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="25dp"
+                    android:paddingHorizontal="20dp"
+                    android:layout_marginHorizontal="37dp"
+                    android:background="@drawable/operation_sum_bg"
+                    android:ems="10"
+                    android:hint="Придумайте пароль"
+                    android:inputType="text"
+                    android:textColorLink="@color/dark_blue"
+                    android:textCursorDrawable="@color/dark_blue"
+                    android:textSize="24sp" />
+
                 <TextView
                     style="@style/font_roboto_light_blue"
                     android:layout_width="match_parent"

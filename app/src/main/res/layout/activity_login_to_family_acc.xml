@@ -64,6 +64,23 @@
                     android:textCursorDrawable="@color/dark_blue"
                     android:textSize="24sp" />
 
+                <EditText
+                    android:id="@+id/code1"
+                    style="@style/font_roboto_regular_blue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="25dp"
+                    android:paddingHorizontal="20dp"
+                    android:layout_marginHorizontal="37dp"
+                    android:background="@drawable/operation_sum_bg"
+                    android:ems="10"
+                    android:hint="Введите пароль"
+                    android:inputType="text"
+                    android:textColorLink="@color/dark_blue"
+                    android:textCursorDrawable="@color/dark_blue"
+                    android:textSize="24sp" />
+
                 <ImageView
                     android:id="@+id/next_btn"
                     android:src="@drawable/next_btn"
@@ -73,13 +90,6 @@
                     android:layout_marginTop="10dp"
                     />
 
-                <ImageView
-                    android:id="@+id/create_family_acc_btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:src="@drawable/next_btn" />
             </LinearLayout>
 
         </LinearLayout>
