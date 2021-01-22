@@ -8,6 +8,7 @@ import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import java.time.LocalDateTime
 import java.time.LocalTime
@@ -34,6 +35,8 @@ class CategoryActivity : AppCompatActivity() {
         val sport = findViewById<ImageView>(R.id.sport)
         val transport = findViewById<ImageView>(R.id.transport)
         val another = findViewById<ImageView>(R.id.no_category)
+        val qrCodeBtn= findViewById<ImageView>(R.id.qr)
+        val incomeOrLoss = findViewById<EditText>(R.id.operation_sum)
         val listImage = listOf<ImageView>(food, car, clothes, education, hobby, house,
                 personalCare, medicine, pets, restaurant, sport, transport, another)
         for (i in listImage)
@@ -44,6 +47,10 @@ class CategoryActivity : AppCompatActivity() {
                 i.isSelected = !i.isSelected }
         }
         setOnClick(listImage)
+        qrCodeBtn.setOnClickListener {
+            startActivity(Intent(this,QrActivity::class.java))
+        }
+        getValueFromQr(incomeOrLoss)
     }
 
     fun setOnClick(listImage: List<ImageView>) {
@@ -125,5 +132,32 @@ class CategoryActivity : AppCompatActivity() {
             if (key.isSelected)
                 return Pair(drawableMap[map[key]].toString(), map[key]!!)
         return Pair(drawableMap["Другое"].toString(), "Другое")
+    }
+
+    fun getValueFromQr(incomeOrLoss:EditText){
+        val barcode = intent.getStringExtra("code")
+        if(barcode == ""){
+            Toast.makeText(this@CategoryActivity,Constants.BAR_CODE_NOT_FOUND, Toast.LENGTH_LONG).show()
+        }else{
+            if(parserStr(barcode) != "0")
+                incomeOrLoss.setText(parserStr(barcode),TextView.BufferType.EDITABLE)
+        }
+    }
+
+    fun parserStr(str: String?): String {
+        if(str == null){
+            return "0"
+        }
+        val a = str.indexOf("s=")
+        var b = a.plus(2)
+        var result = ""
+        var char = str[b]
+        val v: Array<Char> = arrayOf('1','2','3','4','5','6','7','8','9','0','.')
+        while (char in v){
+            result += char
+            b = b+1
+            char = str[b]
+        }
+        return result
     }
 }

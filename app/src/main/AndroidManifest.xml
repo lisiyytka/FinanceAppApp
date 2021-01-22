@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.financeapp">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera2" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinanceApp">
-        <activity android:name=".CreateFamilyActivity"></activity>
+        <activity android:name=".QrActivity"></activity>
+        <activity android:name=".CreateFamilyActivity" />
         <activity android:name=".ChooseActivityFamily" />
         <activity android:name=".LoadScreen" />
         <activity android:name=".LoginToFamilyAccActivity" />

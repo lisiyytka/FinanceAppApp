@@ -63,7 +63,7 @@ class MainFamilyActivity : AppCompatActivity() {
     ///sssss
     fun setOnClick(profile: View ,addOperation: View) {
         profile.setOnClickListener {
-            startActivity(Intent(this, ProfileActivity::class.java))
+            startActivity(Intent(this, MainActivity::class.java))
         }
 
         addOperation.setOnClickListener {
@@ -87,7 +87,7 @@ class MainFamilyActivity : AppCompatActivity() {
         pieChart.data = data
         pieChart.centerTextRadiusPercent = 0f
         pieChart.isDrawHoleEnabled = true
-        pieChart.setHoleColor(getColor(R.color.gradient_blue))
+        pieChart.setHoleColor(getColor(R.color.gradient_green2))
         pieChart.holeRadius=30f
         pieChart.transparentCircleRadius=40f
         pieChart.legend.isEnabled = false
