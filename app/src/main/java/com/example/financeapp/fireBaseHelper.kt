@@ -155,5 +155,30 @@ fun getIncomeAndLossesFamily(user:DataUser, IncomeView:TextView, LossView:TextVi
             })
 }
 
+fun getBalanceFamily(user: DataUser, familyOperation: FamilyOperation){
+    REF_DATABASE_ROOT.child(NODE_FAMILY).child(user.accessCodeToFamily).addListenerForSingleValueEvent(
+            AppValueEventListener{
+                var balance = it.child("balance").getValue(String::class.java)
+                if (familyOperation.IsExpenses)
+                {
+                    balance = (balance!!.toInt() + familyOperation.Operation_operation.toInt()).toString()
+                }
+                else {
+                    balance = (balance!!.toInt() - familyOperation.Operation_operation.toInt()).toString()
+                }
+                REF_DATABASE_ROOT.child(NODE_FAMILY).child(user.accessCodeToFamily).child("balance").setValue(balance)
+            }
+    )
+}
+
+fun setFamilyBalance(user:DataUser, view: TextView){
+    REF_DATABASE_ROOT.child(NODE_FAMILY).child(user.accessCodeToFamily).addListenerForSingleValueEvent(
+            AppValueEventListener{
+                var balance = it.child("balance").getValue(String::class.java)
+                view.text = balance + " руб"
+            }
+    )
+}
+
 
 

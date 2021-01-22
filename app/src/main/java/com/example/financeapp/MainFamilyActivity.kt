@@ -47,8 +47,9 @@ class MainFamilyActivity : AppCompatActivity() {
         val prov = findViewById<TextView>(R.id.budget)
         val addd = LocalDataBaseHandler(this)
         val user = addd.getUser()
-        prov.text = user.balance+ " " + "руб"
+        setFamilyBalance(user,prov)
         getIncomeAndLossesFamily(user, income, loss)
+
         val adapter = SimpleAdapter(
                 this,
                 OperationListFamily,

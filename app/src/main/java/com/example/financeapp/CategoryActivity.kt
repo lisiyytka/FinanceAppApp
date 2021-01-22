@@ -83,6 +83,8 @@ class CategoryActivity : AppCompatActivity() {
                         REF_DATABASE_ROOT.child("FamilyOperations").child(user.accessCodeToFamily).child(date).setValue(familyOperation)
                         isFromLogActivity = true
                         OperationListFamily = getOperationsFamily(user)
+                        getBalanceFamily(user,familyOperation)
+
                     }
                     else{
                         val operation = Operation(user.balance, comment.text.toString(),
