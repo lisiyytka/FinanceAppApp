@@ -68,17 +68,17 @@ fun makeToast(context: Context,arg:String){
 }
 
 fun getIncomeAndLosses(user:DataUser, IncomeView:TextView, LossView:TextView){
-    var income = IncomeView.text.toString().toInt()
-    var loss = LossView.text.toString().toInt()
+    var income = IncomeView.text.toString().toDouble()
+    var loss = LossView.text.toString().toDouble()
     REF_DATABASE_ROOT.child(NODE_OPERATIONS).child(user.login).addListenerForSingleValueEvent(
         AppValueEventListener {
             for (child in it.children) {
                 val operation = child.getValue(Operation::class.java)
                 if (operation != null)
                     if (operation.IsExpenses)
-                        income += operation.Operation_operation.toInt()
+                        income += operation.Operation_operation.toDouble()
                     else
-                        loss += operation.Operation_operation.toInt()
+                        loss += operation.Operation_operation.toDouble()
             }
             IncomeView.text = "+$income"
             LossView.text = "-$loss"
@@ -138,17 +138,17 @@ fun getOperationsFamily(user:DataUser): ArrayList<HashMap<String, Any>> {
 }
 
 fun getIncomeAndLossesFamily(user:DataUser, IncomeView:TextView, LossView:TextView){
-    var income = IncomeView.text.toString().toInt()
-    var loss = LossView.text.toString().toInt()
+    var income = IncomeView.text.toString().toDouble()
+    var loss = LossView.text.toString().toDouble()
     REF_DATABASE_ROOT.child("FamilyOperations").child(user.accessCodeToFamily).addListenerForSingleValueEvent(
             AppValueEventListener {
                 for (child in it.children) {
                     val operation = child.getValue(Operation::class.java)
                     if (operation != null)
                         if (operation.IsExpenses)
-                            income += operation.Operation_operation.toInt()
+                            income += operation.Operation_operation.toDouble()
                         else
-                            loss += operation.Operation_operation.toInt()
+                            loss += operation.Operation_operation.toDouble()
                 }
                 IncomeView.text = "+$income"
                 LossView.text = "-$loss"
@@ -161,10 +161,10 @@ fun getBalanceFamily(user: DataUser, familyOperation: FamilyOperation){
                 var balance = it.child("balance").getValue(String::class.java)
                 if (familyOperation.IsExpenses)
                 {
-                    balance = (balance!!.toInt() + familyOperation.Operation_operation.toInt()).toString()
+                    balance = (balance!!.toDouble() + familyOperation.Operation_operation.toDouble()).toString()
                 }
                 else {
-                    balance = (balance!!.toInt() - familyOperation.Operation_operation.toInt()).toString()
+                    balance = (balance!!.toDouble() - familyOperation.Operation_operation.toDouble()).toString()
                 }
                 REF_DATABASE_ROOT.child(NODE_FAMILY).child(user.accessCodeToFamily).child("balance").setValue(balance)
             }

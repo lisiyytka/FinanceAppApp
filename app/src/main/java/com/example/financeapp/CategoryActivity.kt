@@ -98,9 +98,9 @@ class CategoryActivity : AppCompatActivity() {
                                 value.text.toString(), isExpenses, imgAndCategory.second, date, imgAndCategory.first)
                         REF_DATABASE_ROOT.child("Operations").child(user.login).child(date).setValue(operation)
                         if (isExpenses)
-                            user.balance = (user.balance.toInt() + operation.Operation_operation.toInt()).toString()
+                            user.balance = (user.balance.toDouble() + operation.Operation_operation.toDouble()).toString()
                         else
-                            user.balance = (user.balance.toInt() - operation.Operation_operation.toInt()).toString()
+                            user.balance = (user.balance.toDouble() - operation.Operation_operation.toDouble()).toString()
                         REF_DATABASE_ROOT.child("Users").child(user.login).setValue(user)
                         localBd.deleteData()
                         localBd.insertUser(user)
