@@ -85,7 +85,7 @@
             <Button
                 android:id="@+id/family_btn"
                 style="@style/prfBtn"
-                android:text="Семейнный аккаунт"/>
+                android:text="Семейный аккаунт"/>
 
             <Button
                 android:id="@+id/change_btn"

@@ -61,11 +61,11 @@ class CategoryActivity : AppCompatActivity() {
         }
 
         val changeOperation = findViewById<TextView>(R.id.change_operation)
-        changeOperation.text = "Прибыль"
+        changeOperation.text = "Затраты"
         changeOperation.setOnClickListener {
-            if (changeOperation.text == "Прибыль")
-                changeOperation.text = "Затраты"
-            else changeOperation.text = "Прибыль"
+            if (changeOperation.text == "Затраты")
+                changeOperation.text = "Прибыль"
+            else changeOperation.text = "Затраты"
         }
 
         val accept = findViewById<TextView>(R.id.okey)
