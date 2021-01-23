@@ -10,6 +10,20 @@
     app:behavior_peekHeight="190dp"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
+    <TextView
+        android:id="@+id/temp_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        style="@style/font_roboto_regular_dark_gray"
+        android:textSize="30sp"
+        android:text="Здесь будут ваши операции"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ListView
         android:id="@+id/operations_list"
         android:layout_width="match_parent"

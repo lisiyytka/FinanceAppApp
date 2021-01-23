@@ -34,14 +34,16 @@
             style="@style/linear_layout_height_zero_v"
             android:layout_weight="2">
 
-            <Button
+            <TextView
                 android:id="@+id/newAcc_btn"
                 style="@style/famBtn"
+                android:background="@drawable/operation_change_btn_background"
                 android:text="Создать семейный аккаунт"/>
 
-            <Button
+            <TextView
                 android:id="@+id/acc_btn"
                 style="@style/famBtn"
+                android:background="@drawable/operation_change_btn_background"
                 android:text="Войти в семейный аккаунт"/>
 
         </LinearLayout>

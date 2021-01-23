@@ -39,6 +39,7 @@ class MainFamilyActivity : AppCompatActivity() {
         val addOperation = findViewById<CircleImageView>(R.id.add_btn)
         val income = findViewById<TextView>(R.id.income_sum1)
         val loss = findViewById<TextView>(R.id.expenses_sum1)
+        val tempTextView = findViewById<TextView>(R.id.temp_text_view)
         isFromMainFamily = true
         getDrawableId()
         getColorId()
@@ -49,7 +50,9 @@ class MainFamilyActivity : AppCompatActivity() {
         val user = addd.getUser()
         setFamilyBalance(user,prov)
         getIncomeAndLossesFamily(user, income, loss)
-
+        if(OperationListFamily.isNotEmpty()){
+            tempTextView.text = ""
+        }
         val adapter = SimpleAdapter(
                 this,
                 OperationListFamily,

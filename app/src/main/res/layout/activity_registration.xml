@@ -44,7 +44,7 @@
                 android:layout_marginTop="25dp"
                 android:paddingHorizontal="20dp"
                 android:layout_marginHorizontal="37dp"
-                android:hint="Логин"
+                android:hint="Логин *"
                 android:inputType="text"/>
 
             <EditText
@@ -53,7 +53,7 @@
                 android:layout_marginTop="13dp"
                 android:layout_marginHorizontal="37dp"
                 android:paddingHorizontal="20dp"
-                android:hint="Имя"
+                android:hint="Имя *"
                 android:inputType="text"/>
 
             <EditText
@@ -62,7 +62,7 @@
                 android:layout_marginTop="13dp"
                 android:layout_marginHorizontal="37dp"
                 android:paddingHorizontal="20dp"
-                android:hint="Фамилия"
+                android:hint="Фамилия *"
                 android:inputType="text"/>
 
             <EditText
@@ -71,16 +71,24 @@
                 android:layout_marginTop="13dp"
                 android:layout_marginHorizontal="37dp"
                 android:paddingHorizontal="20dp"
-                android:hint="Телефон"
+                android:hint="+7(999) 999 - 99 - 99 *"
                 android:inputType="phone"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/font_roboto_regular_dark_gray"
+                android:layout_marginHorizontal="37dp"
+                android:text="Введите номер телефона"
+                />
 
             <EditText
                 android:id="@+id/balance"
                 style="@style/reg"
-                android:layout_marginTop="13dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginHorizontal="37dp"
                 android:paddingHorizontal="20dp"
-                android:hint="Баланс"
+                android:hint="Баланс *"
                 android:inputType="number"/>
 
             <EditText
@@ -89,22 +97,39 @@
                 android:layout_marginTop="13dp"
                 android:layout_marginHorizontal="37dp"
                 android:paddingHorizontal="20dp"
-                android:hint="Пароль"
+                android:hint="Пароль *"
                 android:inputType="textPassword"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/font_roboto_regular_dark_gray"
+                android:layout_marginHorizontal="37dp"
+                android:text="Введите пароль не менее 4-х символов"
+                />
 
             <EditText
                 android:id="@+id/pin"
                 style="@style/reg"
                 android:layout_marginHorizontal="37dp"
                 android:layout_marginTop="13dp"
-                android:hint="ПИН-код"
+                android:hint="ПИН-код *"
                 android:inputType="numberPassword"
                 android:paddingHorizontal="20dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/font_roboto_regular_dark_gray"
+                android:layout_marginHorizontal="37dp"
+                android:text="Введите ПИН-код 4 символа"
+                />
 
             <CheckBox
                 android:id="@+id/checkbox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:layout_marginHorizontal="37dp"
                 style="@style/font_roboto_regular_dark_gray"
                 android:textColor="@color/txt_gray"

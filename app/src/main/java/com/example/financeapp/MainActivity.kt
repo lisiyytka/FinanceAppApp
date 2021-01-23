@@ -43,6 +43,7 @@ class MainActivity : AppCompatActivity() {
         val addOperation = findViewById<CircleImageView>(R.id.add_btn)
         val income = findViewById<TextView>(R.id.income_sum)
         val loss = findViewById<TextView>(R.id.expenses_sum)
+        val tempTextView = findViewById<TextView>(R.id.temp_text_view)
         isFromMainFamily = false
         getDrawableId()
         getColorId()
@@ -53,6 +54,9 @@ class MainActivity : AppCompatActivity() {
         val user = addd.getUser()
         prov.text = user.balance+ " " + "руб"
         getIncomeAndLosses(user, income, loss)
+        if(OperationList.isNotEmpty()){
+            tempTextView.text = ""
+        }
         val adapter = SimpleAdapter(
             this,
             OperationList,
