@@ -12,6 +12,8 @@ import com.google.firebase.database.*
 import java.util.ArrayList
 import javax.security.auth.callback.Callback
 import com.example.financeapp.RegistrationActivity
+import java.math.BigDecimal
+import java.math.RoundingMode
 
 
 lateinit var AUTH:FirebaseAuth
@@ -80,8 +82,10 @@ fun getIncomeAndLosses(user:DataUser, IncomeView:TextView, LossView:TextView){
                     else
                         loss += operation.Operation_operation.toDouble()
             }
-            IncomeView.text = "+$income"
-            LossView.text = "-$loss"
+            var income1 = BigDecimal(income).setScale(2,RoundingMode.HALF_EVEN)
+            var loss1 = BigDecimal(loss).setScale(2,RoundingMode.HALF_EVEN)
+            IncomeView.text = "+$income1"
+            LossView.text = "-$loss1"
         })
 }
 
@@ -95,7 +99,8 @@ fun getOperations(user:DataUser): ArrayList<HashMap<String, Any>> {
                         map = HashMap()
                         map["date"] = operation.Date
                         map["category"] = operation.Category
-                        map["operation_sum"] = operation.Operation_operation
+                        var operatio = BigDecimal(operation.Operation_operation.toDouble()).setScale(2,RoundingMode.HALF_EVEN)
+                        map["operation_sum"] = operatio
                         map["comment"] = operation.Comment_text
                         if (operation.IdImage != "")
                             map["image"] = operation.IdImage.toInt()
@@ -120,7 +125,8 @@ fun getOperationsFamily(user:DataUser): ArrayList<HashMap<String, Any>> {
                         map = HashMap()
                         map["date"] = operation.Date
                         map["category"] = operation.Category
-                        map["operation_sum"] = operation.Operation_operation
+                        var operatio = BigDecimal(operation.Operation_operation.toDouble()).setScale(2,RoundingMode.HALF_EVEN)
+                        map["operation_sum"] = operatio
                         map["comment"] = operation.Comment_text
                         map["nameSurname"] = operation.nameSurname
                         map["login"] = operation.login
@@ -150,8 +156,10 @@ fun getIncomeAndLossesFamily(user:DataUser, IncomeView:TextView, LossView:TextVi
                         else
                             loss += operation.Operation_operation.toDouble()
                 }
-                IncomeView.text = "+$income"
-                LossView.text = "-$loss"
+                var income1 = BigDecimal(income).setScale(2,RoundingMode.HALF_EVEN)
+                var loss2 = BigDecimal(loss).setScale(2,RoundingMode.HALF_EVEN)
+                IncomeView.text = "+$income1"
+                LossView.text = "-$loss2"
             })
 }
 
@@ -175,7 +183,8 @@ fun setFamilyBalance(user:DataUser, view: TextView){
     REF_DATABASE_ROOT.child(NODE_FAMILY).child(user.accessCodeToFamily).addListenerForSingleValueEvent(
             AppValueEventListener{
                 var balance = it.child("balance").getValue(String::class.java)
-                view.text = balance + " руб"
+                var bal = BigDecimal(balance!!.toDouble()).setScale(2,RoundingMode.HALF_EVEN).toString()
+                view.text = bal + " руб"
             }
     )
 }

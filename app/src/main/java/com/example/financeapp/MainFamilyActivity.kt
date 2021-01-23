@@ -101,14 +101,14 @@ class MainFamilyActivity : AppCompatActivity() {
     private fun getCategoryValuesAndColors():Pair<ArrayList<PieEntry>, ArrayList<Int>> {
         val yVals = ArrayList<PieEntry>()
         val colors = ArrayList<Int>()
-        val operationList: HashMap<String, Int> = HashMap()
+        val operationList: HashMap<String, Double> = HashMap()
         for (operation in OperationListFamily){
             if (operationList.keys.contains(operation["category"]))
                 operationList[operation["category"].toString()] = operationList[operation["category"].toString()]!!.plus(
-                        operation["operation_sum"].toString().toInt()
+                        operation["operation_sum"].toString().toDouble()
                 )
             else
-                operationList[operation["category"].toString()] = operation["operation_sum"].toString().toInt()
+                operationList[operation["category"].toString()] = operation["operation_sum"].toString().toDouble()
         }
         for (operation in operationList) {
             yVals.add(PieEntry(operation.value.toFloat(),operation.key))

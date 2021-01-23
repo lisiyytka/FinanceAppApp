@@ -25,11 +25,14 @@ import kotlin.coroutines.CoroutineContext
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
+import java.math.BigDecimal
+import java.math.RoundingMode
 
 var OperationList: java.util.ArrayList<HashMap<String, Any>> = ArrayList()
 class MainActivity : AppCompatActivity() {
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
+
     @RequiresApi(Build.VERSION_CODES.M)
     @SuppressLint("ClickableViewAccessibility")
 
@@ -48,27 +51,29 @@ class MainActivity : AppCompatActivity() {
         getDrawableId()
         getColorId()
         setUpPieChartData()
-        setOnClick(profile,addOperation)
+        setOnClick(profile, addOperation)
         val prov = findViewById<TextView>(R.id.budget)
         val addd = LocalDataBaseHandler(this)
         val user = addd.getUser()
-        prov.text = user.balance+ " " + "руб"
+        val big = BigDecimal(user.balance.toDouble()).setScale(2,RoundingMode.HALF_EVEN)
+        prov.text =  big.toString() + " " + "руб"
         getIncomeAndLosses(user, income, loss)
-        if(OperationList.isNotEmpty()){
+        if (OperationList.isNotEmpty()) {
             tempTextView.text = ""
         }
         val adapter = SimpleAdapter(
-            this,
-            OperationList,
-            R.layout.fragment_operations_list,
-            arrayOf("date", "category", "operation_sum", "comment", "image"),
-            intArrayOf(R.id.date, R.id.category, R.id.operation_sum, R.id.comment, R.id.img)
+                this,
+                OperationList,
+                R.layout.fragment_operations_list,
+                arrayOf("date", "category", "operation_sum", "comment", "image"),
+                intArrayOf(R.id.date, R.id.category, R.id.operation_sum, R.id.comment, R.id.img)
         )
         listView.adapter = adapter
 
     }
+
     ///sssss
-    fun setOnClick(profile: View ,addOperation: View) {
+    fun setOnClick(profile: View, addOperation: View) {
         profile.setOnClickListener {
             startActivity(Intent(this, ProfileActivity::class.java))
         }
@@ -83,8 +88,8 @@ class MainActivity : AppCompatActivity() {
         val valuesAndColors = getCategoryValuesAndColors()
         val yVals = valuesAndColors.first
         val dataSet = PieDataSet(yVals, "")
-        dataSet.valueTextSize=10f
-        dataSet.valueTextColor=Color.WHITE
+        dataSet.valueTextSize = 10f
+        dataSet.valueTextColor = Color.WHITE
         val colors = valuesAndColors.second
 
         val pieChart = findViewById<PieChart>(R.id.chart1)
@@ -95,27 +100,27 @@ class MainActivity : AppCompatActivity() {
         pieChart.centerTextRadiusPercent = 0f
         pieChart.isDrawHoleEnabled = true
         pieChart.setHoleColor(getColor(R.color.gradient_blue))
-        pieChart.holeRadius=30f
-        pieChart.transparentCircleRadius=40f
+        pieChart.holeRadius = 30f
+        pieChart.transparentCircleRadius = 40f
         pieChart.legend.isEnabled = false
         pieChart.description.isEnabled = false
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
-    private fun getCategoryValuesAndColors():Pair<ArrayList<PieEntry>, ArrayList<Int>> {
+    private fun getCategoryValuesAndColors(): Pair<ArrayList<PieEntry>, ArrayList<Int>> {
         val yVals = ArrayList<PieEntry>()
         val colors = ArrayList<Int>()
         val operationList: HashMap<String, Double> = HashMap()
-        for (operation in OperationList){
+        for (operation in OperationList) {
             if (operationList.keys.contains(operation["category"]))
                 operationList[operation["category"].toString()] = operationList[operation["category"].toString()]!!.plus(
-                    operation["operation_sum"].toString().toDouble()
+                        operation["operation_sum"].toString().toDouble()
                 )
             else
                 operationList[operation["category"].toString()] = operation["operation_sum"].toString().toDouble()
         }
         for (operation in operationList) {
-            yVals.add(PieEntry(operation.value.toFloat(),operation.key))
+            yVals.add(PieEntry(operation.value.toFloat(), operation.key))
             colors.add(getColor(colorMap[operation.key]!!))
         }
         return Pair(yVals, colors)
