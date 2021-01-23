@@ -89,7 +89,7 @@
                     android:background="@drawable/operation_sum_bg"
                     android:ems="7"
                     android:hint="0"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:paddingHorizontal="13dp"
                     android:paddingVertical="9dp"
                     android:textColorLink="@color/dark_blue"
