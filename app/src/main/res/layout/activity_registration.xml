@@ -69,6 +69,7 @@
                 android:id="@+id/phone"
                 style="@style/reg"
                 android:layout_marginTop="13dp"
+                android:maxLength="15"
                 android:layout_marginHorizontal="37dp"
                 android:paddingHorizontal="20dp"
                 android:hint="+7(999) 999 - 99 - 99 *"
@@ -114,6 +115,7 @@
                 android:layout_marginHorizontal="37dp"
                 android:layout_marginTop="13dp"
                 android:hint="ПИН-код *"
+                android:maxLength="4"
                 android:inputType="numberPassword"
                 android:paddingHorizontal="20dp" />
 

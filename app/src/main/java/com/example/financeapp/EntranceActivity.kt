@@ -10,11 +10,17 @@ class EntranceActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_entrance)
         initFirebase()
+        val localDb = LocalDataBaseHandler(this)
+        val user = localDb.getUser()
+        if (user.login != ""){
+            startActivity(Intent(this,CodeActivity::class.java))
+        }
+        setContentView(R.layout.activity_entrance)
         val registration = findViewById<TextView>(R.id.registration_btn)
         val next = findViewById<ImageView>(R.id.next_btn)
         setOnClick(registration, next)
+
     }
 
     fun setOnClick(registration: View, next: View) {

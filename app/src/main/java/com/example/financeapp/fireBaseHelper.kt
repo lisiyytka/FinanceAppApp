@@ -102,10 +102,15 @@ fun getOperations(user:DataUser): ArrayList<HashMap<String, Any>> {
                         var operatio = BigDecimal(operation.Operation_operation.toDouble()).setScale(2,RoundingMode.HALF_EVEN)
                         map["operation_sum"] = operatio
                         map["comment"] = operation.Comment_text
+                        map["isExpenses"] = operation.IsExpenses
                         if (operation.IdImage != "")
                             map["image"] = operation.IdImage.toInt()
                         else
                             map["image"] = R.drawable.no_category
+                        if (operation.IsExpenses){
+                            map["image"] = R.drawable.income_pic
+                            map["category"] = "Прибыль"
+                        }
                         if (!OperationList.contains(map))
                             OperationList.add(0,map)
 
@@ -129,11 +134,16 @@ fun getOperationsFamily(user:DataUser): ArrayList<HashMap<String, Any>> {
                         map["operation_sum"] = operatio
                         map["comment"] = operation.Comment_text
                         map["nameSurname"] = operation.nameSurname
+                        map["isExpenses"] = operation.IsExpenses
                         map["login"] = operation.login
                         if (operation.IdImage != "")
                             map["image"] = operation.IdImage.toInt()
                         else
                             map["image"] = R.drawable.no_category
+                        if (operation.IsExpenses){
+                            map["image"] = R.drawable.income_pic
+                            map["category"] = "Прибыль"
+                        }
                         if (!OperationListFamily.contains(map))
                             OperationListFamily.add(0,map)
 

@@ -18,6 +18,7 @@ fun getDrawableId(){
     drawableMap["Спорт"] = R.drawable.sport
     drawableMap["Транспорт"] = R.drawable.transport
     drawableMap["Другое"] = R.drawable.no_category
+    drawableMap["Прибыль"] = R.drawable.income_pic
 }
 
 fun getColorId(){

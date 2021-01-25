@@ -5,11 +5,9 @@ import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isInvisible
 import java.time.LocalDateTime
 import java.time.LocalTime
 import java.util.ArrayList
@@ -54,7 +52,7 @@ class CategoryActivity : AppCompatActivity() {
     }
 
     fun setOnClick(listImage: List<ImageView>) {
-
+        val categoryLayout = findViewById<LinearLayout>(R.id.categories)
         val back = findViewById<ImageView>(R.id.back_arrow)
         back.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
@@ -63,9 +61,14 @@ class CategoryActivity : AppCompatActivity() {
         val changeOperation = findViewById<TextView>(R.id.change_operation)
         changeOperation.text = "Затраты"
         changeOperation.setOnClickListener {
-            if (changeOperation.text == "Затраты")
+            if (changeOperation.text == "Затраты") {
                 changeOperation.text = "Прибыль"
-            else changeOperation.text = "Затраты"
+                categoryLayout.isInvisible=true
+            }
+            else{
+                changeOperation.text = "Затраты"
+                categoryLayout.isInvisible=false
+            }
         }
 
         val accept = findViewById<TextView>(R.id.okey)

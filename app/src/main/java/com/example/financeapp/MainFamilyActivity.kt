@@ -103,12 +103,14 @@ class MainFamilyActivity : AppCompatActivity() {
         val colors = ArrayList<Int>()
         val operationList: HashMap<String, Double> = HashMap()
         for (operation in OperationListFamily){
-            if (operationList.keys.contains(operation["category"]))
-                operationList[operation["category"].toString()] = operationList[operation["category"].toString()]!!.plus(
-                        operation["operation_sum"].toString().toDouble()
-                )
-            else
-                operationList[operation["category"].toString()] = operation["operation_sum"].toString().toDouble()
+            if (!operation["isExpenses"].toString().toBoolean()) {
+                if (operationList.keys.contains(operation["category"]))
+                    operationList[operation["category"].toString()] = operationList[operation["category"].toString()]!!.plus(
+                            operation["operation_sum"].toString().toDouble()
+                    )
+                else
+                    operationList[operation["category"].toString()] = operation["operation_sum"].toString().toDouble()
+            }
         }
         for (operation in operationList) {
             yVals.add(PieEntry(operation.value.toFloat(),operation.key))
