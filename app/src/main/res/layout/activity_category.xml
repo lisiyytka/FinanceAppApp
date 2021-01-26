@@ -143,6 +143,7 @@
                     android:inputType="text"
                     android:imeOptions="actionDone"
                     style="@style/font_roboto_regular_dark_gray"
+                    android:textColor="@color/black"
                     android:layout_marginHorizontal="26dp"
                     android:layout_marginBottom="5dp"
                     android:textSize="18sp"

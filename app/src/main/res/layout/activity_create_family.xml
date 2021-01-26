@@ -59,7 +59,7 @@
                     android:background="@drawable/operation_sum_bg"
                     android:ems="10"
                     android:hint="Введите баланс"
-                    android:inputType="text"
+                    android:inputType="number"
                     android:textColorLink="@color/dark_blue"
                     android:textCursorDrawable="@color/dark_blue"
                     android:textSize="24sp" />
@@ -76,7 +76,7 @@
                     android:background="@drawable/operation_sum_bg"
                     android:ems="10"
                     android:hint="Придумайте пароль"
-                    android:inputType="text"
+                    android:inputType="textPassword"
                     android:textColorLink="@color/dark_blue"
                     android:textCursorDrawable="@color/dark_blue"
                     android:textSize="24sp" />

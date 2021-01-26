@@ -84,7 +84,7 @@
                 android:layout_height="wrap_content"
                 style="@style/font_roboto_regular_dark_gray"
                 android:layout_marginHorizontal="37dp"
-                android:text="Введите вашу фамилию"
+                android:text="Введите вашу фамилию*"
                 />
 
 
@@ -119,7 +119,7 @@
                 android:layout_height="wrap_content"
                 style="@style/font_roboto_regular_dark_gray"
                 android:layout_marginHorizontal="37dp"
-                android:text="Введите номер телефона*"
+                android:text="Введите баланс*"
                 />
 
 

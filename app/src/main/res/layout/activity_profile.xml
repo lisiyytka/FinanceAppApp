@@ -91,18 +91,18 @@
                 android:id="@+id/change_btn"
                 style="@style/prfBtn"
                 android:text="Сменить аккаунт"/>
+            <Button
+                android:id="@+id/delete_history_btn"
+                style="@style/prfBtn"
+                android:text="Удалить историю"/>
 
             <Button
-                android:id="@+id/exit_btn"
+                android:id="@+id/delete_acc_btn"
                 style="@style/prfBtn"
                 android:text="Удалить пользователя"/>
 
         </LinearLayout>
 
-        <LinearLayout
-            style="@style/linear_layout_height_zero_h"
-            android:layout_weight="2">
-        </LinearLayout>
 
     </LinearLayout>
 

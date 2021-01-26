@@ -38,15 +38,29 @@ class ProfileActivity : AppCompatActivity() {
         val btnChangeAcc = findViewById<Button>(R.id.change_btn)
         btnChangeAcc.setOnClickListener {
             db.deleteData()
+            OperationList.clear()
+            OperationListFamily.clear()
             startActivity(Intent(this,EntranceActivity::class.java))
         }
 
-        val deleteHistoryFromAnywhere = findViewById<Button>(R.id.exit_btn)
+        val deleteAccFromAnywhere = findViewById<Button>(R.id.delete_acc_btn)
+        deleteAccFromAnywhere.setOnClickListener {
+            initFirebase()
+            db.deleteData()
+            db.deleteData()
+            OperationList.clear()
+            OperationListFamily.clear()
+            REF_DATABASE_ROOT.child(NODE_USERS).child(user.login).removeValue()
+            REF_DATABASE_ROOT.child(NODE_OPERATIONS).child(user.login).removeValue()
+            startActivity(Intent(this,EntranceActivity::class.java))
+        }
+
+        val deleteHistoryFromAnywhere = findViewById<Button>(R.id.delete_history_btn)
         deleteHistoryFromAnywhere.setOnClickListener {
             initFirebase()
-            REF_DATABASE_ROOT.child(NODE_USERS).child(user.login).removeValue()
-            db.deleteData()
-            startActivity(Intent(this,EntranceActivity::class.java))
+            OperationList.clear()
+            REF_DATABASE_ROOT.child(NODE_OPERATIONS).child(user.login).removeValue()
+            startActivity(Intent(this,CodeActivity::class.java))
         }
     }
 }
