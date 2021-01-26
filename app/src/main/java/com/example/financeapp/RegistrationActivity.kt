@@ -72,7 +72,7 @@ class RegistrationActivity : AppCompatActivity() {
                      reg_balance: EditText, name: EditText, surname: EditText, phone: EditText, PIN: EditText) {
         if (check.isChecked && login.text.isNotEmpty() && password.text.isNotEmpty()
                 && reg_balance.text.isNotBlank() && name.text.isNotEmpty() && surname.text.isNotEmpty()
-                && phone.text.isNotEmpty() && PIN.text.isNotEmpty() && PIN.text.length == 4) {
+                && phone.text.isNotEmpty() && PIN.text.isNotEmpty() && PIN.text.length == 4 && password.text.length >= 4) {
             checkUserOnRepeat(login, password, reg_balance, name, surname, phone, PIN, this)
         } else {
             Toast.makeText(this, "Заполните все поля", Toast.LENGTH_LONG).show()

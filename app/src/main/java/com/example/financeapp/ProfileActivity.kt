@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.firebase.database.FirebaseDatabase
 
 
 class ProfileActivity : AppCompatActivity() {
@@ -32,6 +33,20 @@ class ProfileActivity : AppCompatActivity() {
             }
             else
                 startActivity(Intent(this, ChooseActivityFamily::class.java))
+        }
+
+        val btnChangeAcc = findViewById<Button>(R.id.change_btn)
+        btnChangeAcc.setOnClickListener {
+            db.deleteData()
+            startActivity(Intent(this,EntranceActivity::class.java))
+        }
+
+        val deleteHistoryFromAnywhere = findViewById<Button>(R.id.exit_btn)
+        deleteHistoryFromAnywhere.setOnClickListener {
+            initFirebase()
+            REF_DATABASE_ROOT.child(NODE_USERS).child(user.login).removeValue()
+            db.deleteData()
+            startActivity(Intent(this,EntranceActivity::class.java))
         }
     }
 }

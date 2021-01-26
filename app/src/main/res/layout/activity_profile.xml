@@ -95,7 +95,7 @@
             <Button
                 android:id="@+id/exit_btn"
                 style="@style/prfBtn"
-                android:text="Выход"/>
+                android:text="Удалить пользователя"/>
 
         </LinearLayout>
 

@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 
 class CodeActivity : AppCompatActivity() {
     val db = LocalDataBaseHandler(this)
@@ -63,6 +64,8 @@ class CodeActivity : AppCompatActivity() {
                     OperationList = getOperations(user)
                     startActivity(Intent(fieldCode.context,LoadScreen::class.java))
                 }
+                else if (s!!.length == 4 )
+                    makeToast(fieldCode.context,"Неверный код")
             }
 
             override fun afterTextChanged(s: Editable?) {
