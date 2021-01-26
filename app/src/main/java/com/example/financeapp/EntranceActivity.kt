@@ -20,7 +20,6 @@ class EntranceActivity : AppCompatActivity() {
         val registration = findViewById<TextView>(R.id.registration_btn)
         val next = findViewById<ImageView>(R.id.next_btn)
         setOnClick(registration, next)
-
     }
 
     fun setOnClick(registration: View, next: View) {

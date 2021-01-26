@@ -15,6 +15,10 @@ class CodeActivity : AppCompatActivity() {
     val db = LocalDataBaseHandler(this)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val localDb = LocalDataBaseHandler(this)
+        val user = localDb.getUser()
+        if (user.login == "")
+            startActivity(Intent(this,EntranceActivity::class.java))
         setContentView(R.layout.activity_code)
         val fieldCode = findViewById<TextView>(R.id.login)
         val btn_0 = findViewById<TextView>(R.id.btn_0)
