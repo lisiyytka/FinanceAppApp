@@ -92,7 +92,7 @@
                 android:id="@+id/phone"
                 style="@style/reg"
                 android:layout_marginTop="10dp"
-                android:maxLength="15"
+                android:maxLength="11"
                 android:layout_marginHorizontal="37dp"
                 android:paddingHorizontal="20dp"
                 android:hint="+7(999) 999 - 99 - 99"

@@ -20,34 +20,6 @@ class RegistrationActivity : AppCompatActivity() {
         val entrance = findViewById<TextView>(R.id.already_have_acc)
         val next = findViewById<ImageView>(R.id.next_btn)
         setOnClick(entrance, next)
-
-        val phone = findViewById<EditText>(R.id.phone)
-        var lastChar = " "
-        phone.addTextChangedListener(object: TextWatcher{
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                val digits = phone.text.length
-                if (digits > 1)
-                    lastChar = phone.text.substring(digits-1)
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                val digits = phone.text.length
-                if (digits == 1)
-                    phone.text.append("+7",0,0)
-                if (lastChar != "-"){
-                    if (digits == 2)
-                        phone.text.append(" ")
-                if (digits == 5 || digits == 9|| digits == 11 || digits == 12)
-                    phone.text.append("-")
-            }
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-
-            }
-
-        })
-
     }
 
     fun setOnClick(entrance: View, next: View) {
